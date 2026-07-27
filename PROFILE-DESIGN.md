@@ -39,9 +39,34 @@ COLLABORATION
 
 主題為 **SCIENTIFIC TERMINAL / SYSTEM CONSOLE**。
 
-視覺元素使用終端機啟動畫面、科學儀器格線、低干擾波形、服務拓撲與狀態訊號。裝飾必須協助資訊分區，不得蓋過身份文字。避免駭客電影、Matrix 字幕雨、遊戲機介面、高頻閃光、過量 neon、第三方統計卡、徽章堆疊與無法驗證的數據。
+視覺元素使用終端機啟動畫面、工程圖 title block、module IDs、square ports、90-degree buses、junctions、protocol/data labels、服務拓撲與具名狀態端點。每個圖形都必須表達節點、連線、資料類型或狀態；不使用裝飾性軌道、無標籤波形、漂浮節點或抽象科技線條。座標 grid 只出現在 schematic viewport，不鋪滿 title block、文字區或整張畫布。避免駭客電影、Matrix 字幕雨、遊戲機介面、高頻閃光、過量 neon、第三方統計卡、徽章堆疊與無法驗證的數據。
 
-本設計不得重用參考 Profile 的 SVG、座標、動畫路徑、文案、圖片或配色配置。Header 的原創識別是「左側組織 boot transcript + 右側 student-system service topology」。
+本設計不得重用參考 Profile 的 SVG、座標、動畫路徑、文案、圖片或配色配置。Header 的原創識別是「組織 boot transcript + student-system schematic」；Contact 則把公開端點畫成同一工程圖系統中的連線模組。
+
+### 工程圖框架與固定路由
+
+- **Title block**：顯示圖面名稱、公開狀態與版本語意，不使用無法驗證的數據。
+- **Module IDs**：使用 `Pxx`、`Nxx`、`Jxx`、`Exx`、`Cxx` 等短 ID；文字標籤與節點位置必須在 dark/light 間完全一致。
+- **Ports and buses**：連接埠使用 square ports；bus 只使用水平與垂直的 90-degree segments，不使用隨意曲線。
+- **Junctions**：只有實際分流或匯流處才畫 junction；交叉但不連接的線不得誤畫接點。
+- **Protocol/data labels**：標籤描述公開且一般性的資料路徑，不得放入 IP、credential、token 或私人維運資訊。
+- **Grid scope**：grid 僅限 schematic viewport；terminal transcript、title block 與外框保持乾淨。
+
+固定的 Header 路由為：
+
+```text
+P01 → N01 → N02 → N03 → J01 → N04
+                              └→ N05
+```
+
+固定的 Contact 路由為：
+
+```text
+P01 → J01 → E01 → C01
+        └→ E02 → C01
+```
+
+更新幾何時可以重新配置座標，但不得改變上述節點順序、分支語意與 module IDs；desktop/mobile 必須表達相同路由。
 
 ## 3. 配色
 
@@ -102,7 +127,7 @@ font-family:
 |---|---:|---:|
 | Header | `0 0 1200 360` | `0 0 720 620` |
 | PhysArchive project card | `0 0 1200 320` | `0 0 720 580` |
-| Contact console | `0 0 1200 190` | `0 0 720 300` |
+| Contact console | `0 0 1200 190` | `0 0 720 360` |
 
 命名規則：
 
@@ -168,7 +193,7 @@ https://physarchive.com/
 README 內 SVG 路徑使用 query version，例如：
 
 ```html
-srcset="./assets/header-dark.svg?v=1"
+srcset="./assets/header-dark.svg?v=2"
 ```
 
 修改任何已發布 SVG 後：
@@ -226,7 +251,7 @@ for path in Path("profile/assets").rglob("*.svg"):
 
 - Header：desktop dark/light、mobile dark/light。
 - PhysArchive card：desktop dark/light、mobile dark/light。
-- Contact：dark/light。
+- Contact：desktop dark/light、mobile dark/light。
 - 動畫輸入中畫面、完整停留畫面、重置、cursor 與 reduced motion。
 - 文字裁切、重疊、邊界留白、小字可讀性與中文 glyph fallback。
 
