@@ -46,7 +46,6 @@
         font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
         font-weight: 700;
       }
-      .bg { fill: #050A10; }
       .panel { fill: #09131D; }
       .raised { fill: #0D1B27; }
       .primary { fill: #F1F6F8; }
@@ -77,7 +76,6 @@
     </style>
   </defs>
 
-  <rect class="bg" width="720" height="620"/>
   <rect x="10" y="10" width="700" height="600" rx="6" class="panel border" stroke-width="1.5"/>
 
   <g aria-hidden="true">

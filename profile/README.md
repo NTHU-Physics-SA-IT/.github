@@ -2,22 +2,22 @@
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/header-mobile-dark.svg?v=2"
+      srcset="./assets/header-mobile-dark.svg?v=3"
     />
     <source
       media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/header-mobile-light.svg?v=2"
+      srcset="./assets/header-mobile-light.svg?v=3"
     />
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./assets/header-dark.svg?v=2"
+      srcset="./assets/header-dark.svg?v=3"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./assets/header-light.svg?v=2"
+      srcset="./assets/header-light.svg?v=3"
     />
     <img
-      src="./assets/header-light.svg?v=2"
+      src="./assets/header-light.svg?v=3"
       width="100%"
       alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
     />
@@ -117,22 +117,22 @@ QUALITY        Vitest / Playwright / pytest / Ruff
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/contact-mobile-dark.svg?v=2"
+      srcset="./assets/contact-mobile-dark.svg?v=3"
     />
     <source
       media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/contact-mobile-light.svg?v=2"
+      srcset="./assets/contact-mobile-light.svg?v=3"
     />
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./assets/contact-dark.svg?v=2"
+      srcset="./assets/contact-dark.svg?v=3"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./assets/contact-light.svg?v=2"
+      srcset="./assets/contact-light.svg?v=3"
     />
     <img
-      src="./assets/contact-light.svg?v=2"
+      src="./assets/contact-light.svg?v=3"
       width="100%"
       alt="Contact console for NTHU Physics Student Association IT Team"
     />

@@ -34,8 +34,8 @@ EXPECTED_VIEWBOXES = {
 EXPECTED_ASSETS = set(EXPECTED_VIEWBOXES)
 
 EXPECTED_CACHE_VERSIONS = {
-    "header": "2",
-    "contact": "2",
+    "header": "3",
+    "contact": "3",
     "pastexam": "1",
 }
 
@@ -175,6 +175,107 @@ def _parse_number_list(value: str) -> list[float] | None:
 def _duration_seconds(value: str) -> float | None:
     match = re.fullmatch(r"\s*(\d+(?:\.\d*)?|\.\d+)s\s*", value)
     return float(match.group(1)) if match else None
+
+
+def _svg_length(
+    value: str | None,
+    axis_size: float,
+    *,
+    default: float | None = None,
+    percentage_origin: float = 0,
+) -> float | None:
+    """Parse the numeric and percentage lengths used by profile rects."""
+
+    if value is None or not value.strip():
+        return default
+
+    normalized = value.strip()
+    percentage = normalized.endswith("%")
+    if percentage:
+        normalized = normalized[:-1].strip()
+    elif normalized.lower().endswith("px"):
+        normalized = normalized[:-2].strip()
+
+    try:
+        number = float(normalized)
+    except ValueError:
+        return None
+
+    if percentage:
+        return percentage_origin + (axis_size * number / 100)
+    return number
+
+
+def validate_transparent_outer_canvas(
+    root: ET.Element,
+    relative: str,
+    errors: list[str],
+) -> None:
+    """Reject render-tree rects whose geometry covers the complete viewBox."""
+
+    viewbox = root.get("viewBox", "").replace(",", " ").split()
+    try:
+        min_x, min_y, width, height = (float(part) for part in viewbox)
+    except (TypeError, ValueError):
+        return
+    if width <= 0 or height <= 0:
+        return
+
+    parent_map = {
+        child: parent for parent in root.iter() for child in parent
+    }
+    non_rendering = {
+        "clipPath",
+        "defs",
+        "marker",
+        "mask",
+        "pattern",
+        "symbol",
+    }
+    tolerance = 1e-6
+    for rect in (
+        element
+        for element in root.iter()
+        if _local_name(element.tag) == "rect"
+    ):
+        ancestor = parent_map.get(rect)
+        inside_non_rendering = False
+        while ancestor is not None:
+            if _local_name(ancestor.tag) in non_rendering:
+                inside_non_rendering = True
+                break
+            ancestor = parent_map.get(ancestor)
+        if inside_non_rendering:
+            continue
+
+        x = _svg_length(
+            rect.get("x"),
+            width,
+            default=0,
+            percentage_origin=min_x,
+        )
+        y = _svg_length(
+            rect.get("y"),
+            height,
+            default=0,
+            percentage_origin=min_y,
+        )
+        rect_width = _svg_length(rect.get("width"), width)
+        rect_height = _svg_length(rect.get("height"), height)
+        if None in {x, y, rect_width, rect_height}:
+            continue
+
+        covers_viewbox = (
+            x <= min_x + tolerance
+            and y <= min_y + tolerance
+            and x + rect_width >= min_x + width - tolerance
+            and y + rect_height >= min_y + height - tolerance
+        )
+        if covers_viewbox:
+            errors.append(
+                f"{relative}: render-tree rect covers the complete viewBox; "
+                "remove it so the Header/Contact canvas remains transparent"
+            )
 
 
 def _normalized_theme_svg(path: Path) -> str | None:
@@ -672,6 +773,9 @@ def validate_svg(path: Path, errors: list[str]) -> None:
                 )
             if attribute_name == "href" and not value.startswith("#"):
                 errors.append(f"{relative}: external href target {value}")
+
+    if path.name.startswith(("header", "contact")):
+        validate_transparent_outer_canvas(root, relative, errors)
 
     if path.name.startswith("header"):
         validate_header_animation(root, raw, relative, errors)
