@@ -1,49 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="contact-mobile-title contact-mobile-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="contact-mobile-title contact-mobile-desc">
   <title id="contact-mobile-title">Contact the NTHU Physics Student Association IT Team</title>
-  <desc id="contact-mobile-desc">Mobile dark scientific terminal console listing the GitHub organization, Physics Archive website, and open contribution status.</desc>
-  <style>
-    text {
-      font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
-      font-weight: 700;
-    }
-    .command { font-weight: 800; }
-  </style>
+  <desc id="contact-mobile-desc">Mobile dark engineering contact console with public GitHub and Physics Archive endpoints connected through a logical routing schematic.</desc>
+  <defs>
+    <pattern id="contact-mobile-grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" fill="none" stroke="#1B3A4B" stroke-width=".8" opacity=".55"/>
+    </pattern>
+    <style>
+      text {
+        font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
+        font-weight: 700;
+      }
+      .command { font-weight: 800; }
+      .label { font-weight: 800; letter-spacing: .45px; }
+    </style>
+  </defs>
 
-  <rect width="720" height="300" rx="16" fill="#050A10"/>
-  <rect x="4" y="4" width="712" height="292" rx="13" fill="#09131D" stroke="#1B3A4B" stroke-width="2"/>
-  <path d="M4 44H716" stroke="#1B3A4B" stroke-width="2"/>
+  <rect width="720" height="360" fill="#050A10"/>
+  <rect x="10" y="10" width="700" height="340" rx="6" fill="#09131D" stroke="#1B3A4B" stroke-width="1.5"/>
+  <path d="M10 55H710" stroke="#1B3A4B" stroke-width="1.5"/>
 
-  <circle cx="25" cy="24" r="5" fill="#65F2AE"/>
-  <circle cx="44" cy="24" r="5" fill="#55D8F5"/>
-  <circle cx="63" cy="24" r="5" fill="#EBCB72"/>
-  <text x="82" y="30" font-size="16" fill="#91A6B5">CONTACT CONSOLE // PUBLIC</text>
-  <text x="694" y="30" text-anchor="end" font-size="16" fill="#91A6B5">LINK: READY</text>
+  <rect x="22" y="27" width="9" height="9" rx="1" fill="#65F2AE"/>
+  <text x="42" y="41" class="label" font-size="16" fill="#91A6B5">CONTACT CONSOLE / PUBLIC ENDPOINTS</text>
+  <text x="696" y="41" text-anchor="end" class="label" font-size="14" fill="#91A6B5">DWG C-M01 / READY</text>
 
-  <text x="28" y="82" class="command" font-size="22" fill="#F1F6F8">&gt; connect --organization NTHU-Physics-SA-IT</text>
-  <text x="28" y="126" font-size="21" fill="#F1F6F8">
+  <text x="28" y="89" class="command" font-size="22" fill="#F1F6F8">&gt; connect --organization NTHU-Physics-SA-IT</text>
+  <text x="28" y="129" font-size="21" fill="#F1F6F8">
     <tspan fill="#55D8F5">GITHUB</tspan>
     <tspan fill="#91A6B5"> : </tspan>
     <tspan>github.com/NTHU-Physics-SA-IT</tspan>
   </text>
-  <text x="28" y="166" font-size="21" fill="#F1F6F8">
+  <text x="28" y="168" font-size="21" fill="#F1F6F8">
     <tspan fill="#55D8F5">SYSTEM</tspan>
     <tspan fill="#91A6B5"> : </tspan>
     <tspan>physarchive.com</tspan>
   </text>
-  <text x="28" y="206" font-size="21" fill="#65F2AE">
+  <text x="28" y="207" font-size="21" fill="#65F2AE">
     <tspan>STATUS</tspan>
     <tspan fill="#91A6B5"> : </tspan>
     <tspan>OPEN TO CONTRIBUTIONS_</tspan>
   </text>
 
-  <g aria-hidden="true">
-    <rect x="28" y="224" width="664" height="50" rx="8" fill="#0D1B27" stroke="#1B3A4B" stroke-width="2"/>
-    <path d="M48 249H672" stroke="#1B3A4B" stroke-width="1"/>
-    <path d="M82 233V266M204 233V266M326 233V266M448 233V266M570 233V266" stroke="#1B3A4B" stroke-width="1"/>
-    <path d="M48 254H82L98 238L118 267L142 232L163 254H204L221 245L239 254H286L305 230L322 271L344 254H392L410 242L430 263L448 254H496L515 235L533 268L552 254H608L624 244L640 254H672"
-          fill="none" stroke="#55D8F5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="204" cy="249" r="5" fill="#65F2AE"/>
-    <circle cx="448" cy="249" r="5" fill="#09131D" stroke="#65F2AE" stroke-width="2"/>
-    <rect x="632" y="263" width="40" height="4" rx="2" fill="#EBCB72"/>
+  <g aria-label="Public contact routing schematic">
+    <rect x="28" y="238" width="664" height="105" rx="4" fill="#0D1B27" stroke="#1B3A4B" stroke-width="1.5"/>
+    <rect x="28" y="238" width="664" height="105" rx="4" fill="url(#contact-mobile-grid)"/>
+    <path d="M28 263H692" stroke="#1B3A4B" stroke-width="1"/>
+    <text x="40" y="256" class="label" font-size="15" fill="#F1F6F8">PUBLIC CONTACT ROUTING / LOGICAL</text>
+    <text x="680" y="256" text-anchor="end" font-size="13" fill="#91A6B5">PORT / NODE / HTTPS</text>
+
+    <path d="M153 304H194M194 285V325M194 285H237M194 325H237M390 285H522V304H555M390 325H522V304"
+          fill="none" stroke="#55D8F5" stroke-width="1.8"/>
+    <circle cx="194" cy="304" r="5" fill="#55D8F5"/>
+    <circle cx="522" cy="304" r="2" fill="#55D8F5"/>
+    <circle cx="522" cy="285" r="2" fill="#55D8F5"/>
+    <circle cx="522" cy="325" r="2" fill="#55D8F5"/>
+    <text x="181" y="279" class="label" font-size="13" fill="#91A6B5">J01</text>
+    <text x="404" y="280" class="label" font-size="13" fill="#55D8F5">ISSUE / PR</text>
+    <text x="404" y="320" class="label" font-size="13" fill="#55D8F5">USE / FEEDBACK</text>
+
+    <rect x="44" y="287" width="105" height="34" rx="2" fill="#09131D" stroke="#1B3A4B"/>
+    <rect x="37" y="301" width="7" height="7" fill="#55D8F5"/>
+    <rect x="146" y="301" width="7" height="7" fill="#55D8F5"/>
+    <text x="96.5" y="301" text-anchor="middle" class="label" font-size="14" fill="#F1F6F8">P01 PUBLIC</text>
+    <text x="96.5" y="316" text-anchor="middle" font-size="13" fill="#91A6B5">HTTPS</text>
+
+    <rect x="240" y="268" width="146" height="34" rx="2" fill="#09131D" stroke="#1B3A4B"/>
+    <rect x="237" y="282" width="7" height="7" fill="#55D8F5"/>
+    <rect x="383" y="282" width="7" height="7" fill="#55D8F5"/>
+    <text x="252" y="282" class="label" font-size="14" fill="#F1F6F8">E01 GITHUB</text>
+    <text x="252" y="297" font-size="13" fill="#91A6B5">HTTPS</text>
+
+    <rect x="240" y="308" width="146" height="34" rx="2" fill="#09131D" stroke="#1B3A4B"/>
+    <rect x="237" y="322" width="7" height="7" fill="#55D8F5"/>
+    <rect x="383" y="322" width="7" height="7" fill="#55D8F5"/>
+    <text x="252" y="322" class="label" font-size="14" fill="#EBCB72">E02 ARCHIVE</text>
+    <text x="252" y="337" font-size="13" fill="#91A6B5">HTTPS</text>
+
+    <rect x="558" y="287" width="120" height="34" rx="2" fill="#09131D" stroke="#65F2AE"/>
+    <rect x="555" y="301" width="7" height="7" fill="#55D8F5"/>
+    <rect x="675" y="301" width="7" height="7" fill="#65F2AE"/>
+    <text x="618" y="310" text-anchor="middle" class="label" font-size="15" fill="#65F2AE">C01 OPEN</text>
   </g>
 </svg>

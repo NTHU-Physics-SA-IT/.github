@@ -8,6 +8,9 @@
     <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M0 0L8 4L0 8Z" fill="#006D85"/>
     </marker>
+    <marker id="arrow-data" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#8A6500"/>
+    </marker>
     <clipPath id="type-command">
       <rect x="52" y="167" width="0" height="22">
         <animate attributeName="width" values="0;0;32;64;96;128;160;192;224;256;288;320;344;344;0" keyTimes="0;.028;.035;.042;.049;.056;.063;.070;.077;.084;.091;.098;.105;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
@@ -59,9 +62,15 @@
       .terminal { font-size: 14px; font-weight: 700; }
       .node-label { font-size: 14px; font-weight: 800; letter-spacing: 1px; }
       .node-meta { font-size: 11.5px; font-weight: 700; letter-spacing: .7px; }
+      .node-id { font-size: 10.5px; font-weight: 800; letter-spacing: .8px; }
+      .bus-label { font-size: 10.5px; font-weight: 800; letter-spacing: .4px; }
+      .port-label { font-size: 10.5px; font-weight: 800; letter-spacing: .5px; }
       .rail { font-size: 12px; font-weight: 800; letter-spacing: 1.7px; }
-      .topology-line { fill: none; stroke: #006D85; stroke-width: 1.4; opacity: .68; marker-end: url(#arrow); }
-      .orbit { fill: none; stroke: #B8C9D1; stroke-width: 1; stroke-dasharray: 4 8; opacity: .7; }
+      .request-bus { fill: none; stroke: #006D85; stroke-width: 1.6; marker-end: url(#arrow); }
+      .data-bus { fill: none; stroke: #8A6500; stroke-width: 1.6; marker-end: url(#arrow-data); }
+      .request-port { fill: #FFFFFF; stroke: #006D85; stroke-width: 1.5; }
+      .health-port { fill: #087A4B; }
+      .junction { fill: #8A6500; }
       @media (prefers-reduced-motion: reduce) {
         .motion-layer { display: none !important; }
       }
@@ -69,20 +78,18 @@
   </defs>
 
   <rect class="bg" width="1200" height="360"/>
-  <rect width="1200" height="360" fill="url(#grid)"/>
-  <rect x="12" y="12" width="1176" height="336" rx="8" class="panel border" stroke-width="1.5"/>
+  <rect x="12" y="12" width="1176" height="336" rx="4" class="panel border" stroke-width="1.5"/>
 
   <g aria-hidden="true">
     <path d="M28 54H1172" class="border" stroke-width="1"/>
     <path d="M750 66V326" class="border" stroke-width="1"/>
     <rect x="28" y="27" width="8" height="8" class="green"/>
-    <circle cx="1137" cy="31" r="4" class="green"/>
-    <circle cx="1152" cy="31" r="4" class="cyan" opacity=".75"/>
-    <circle cx="1167" cy="31" r="4" class="amber" opacity=".75"/>
+    <path d="M890 20V46M1048 20V46" class="border" stroke-width="1"/>
   </g>
 
   <text x="48" y="36" class="meta muted">ORG PROFILE / SYSTEM CONSOLE</text>
-  <text x="918" y="36" class="meta muted">SESSION 01 / PUBLIC</text>
+  <text x="904" y="36" class="meta muted">DWG H-01 / REV 02</text>
+  <text x="1168" y="36" text-anchor="end" class="meta muted">STATE / PUBLIC</text>
 
   <text x="40" y="92" class="brand primary">NTHU PHYSICS SA // IT TEAM</text>
   <text x="40" y="121" class="brand-zh primary">清大物理系系學會資訊組</text>
@@ -136,55 +143,71 @@
   </g>
 
   <g>
-    <text x="774" y="82" class="meta cyan">SERVICE TOPOLOGY / PUBLIC</text>
-    <text x="774" y="102" class="node-meta muted">STUDENT KNOWLEDGE DELIVERY PATH</text>
-    <rect x="770" y="112" width="402" height="204" rx="6" class="raised border" stroke-width="1.2"/>
-    <path class="orbit" d="M784 215C817 113 1108 91 1157 207C1102 306 829 322 784 215Z"/>
+    <text x="774" y="82" class="meta cyan">SERVICE TOPOLOGY / L1 BLOCK DIAGRAM</text>
+    <text x="774" y="102" class="node-meta muted">CYAN REQUEST / AMBER STORAGE / GREEN HEALTH</text>
+    <rect x="770" y="112" width="402" height="204" rx="2" class="raised border" stroke-width="1.2"/>
+    <rect x="770" y="112" width="402" height="204" rx="2" fill="url(#grid)" opacity=".34"/>
 
-    <path class="topology-line" d="M910 146C936 146 929 206 955 206"/>
-    <path class="topology-line" d="M955 206C925 206 916 273 890 273"/>
-    <path class="topology-line" d="M1003 227V252"/>
-    <path class="topology-line" d="M1050 206C1075 206 1065 146 1075 146"/>
+    <rect x="781" y="158" width="7" height="7" class="request-port"/>
+    <text x="780" y="128" class="port-label cyan">P01 PUBLIC</text>
+    <path class="request-bus" d="M788 162H805"/>
+    <text x="781" y="203" class="bus-label muted">HTTPS</text>
 
-    <g transform="translate(790 125)">
-      <rect width="120" height="42" rx="4" class="panel border" stroke-width="1.2"/>
-      <rect width="4" height="42" rx="2" class="green"/>
-      <text x="14" y="18" class="node-label primary">ARCHIVE</text>
-      <text x="14" y="33" class="node-meta muted">COURSE INDEX</text>
+    <path class="request-bus" d="M883 162H911"/>
+    <text x="888" y="154" class="bus-label muted">APP</text>
+    <path class="request-bus" d="M1015 162H1043"/>
+    <text x="1017" y="154" class="bus-label muted">JSON</text>
+
+    <g transform="translate(805 136)">
+      <rect width="78" height="52" rx="2" class="panel border" stroke-width="1.2"/>
+      <text x="10" y="14" class="node-id cyan">N01</text>
+      <text x="10" y="31" class="node-label primary">EDGE</text>
+      <text x="10" y="45" class="node-meta muted">NGINX</text>
     </g>
-    <g transform="translate(955 185)">
-      <rect width="95" height="42" rx="4" class="panel border" stroke-width="1.2"/>
-      <rect width="4" height="42" rx="2" class="cyan"/>
-      <text x="14" y="18" class="node-label primary">API</text>
-      <text x="14" y="33" class="node-meta muted">ROUTE</text>
+    <g transform="translate(911 136)">
+      <rect width="104" height="52" rx="2" class="panel border" stroke-width="1.2"/>
+      <text x="10" y="14" class="node-id cyan">N02</text>
+      <text x="10" y="31" class="node-label primary">ARCHIVE UI</text>
+      <text x="10" y="45" class="node-meta muted">VUE 3</text>
     </g>
-    <g transform="translate(795 252)">
-      <rect width="95" height="42" rx="4" class="panel border" stroke-width="1.2"/>
-      <rect width="4" height="42" rx="2" class="amber"/>
-      <text x="14" y="18" class="node-label primary">DB</text>
-      <text x="14" y="33" class="node-meta muted">PERSIST</text>
-    </g>
-    <g transform="translate(925 252)">
-      <rect width="130" height="42" rx="4" class="panel border" stroke-width="1.2"/>
-      <rect width="4" height="42" rx="2" class="amber"/>
-      <text x="14" y="18" class="node-label primary">OBJECT</text>
-      <text x="14" y="33" class="node-meta muted">DOCUMENT STORE</text>
-    </g>
-    <g transform="translate(1075 125)">
-      <rect width="95" height="42" rx="4" class="panel border" stroke-width="1.2"/>
-      <rect width="4" height="42" rx="2" class="green"/>
-      <text x="14" y="18" class="node-label primary">EDGE</text>
-      <text x="14" y="33" class="node-meta muted">DELIVER</text>
+    <g transform="translate(1043 136)">
+      <rect width="80" height="52" rx="2" class="panel border" stroke-width="1.2"/>
+      <text x="10" y="14" class="node-id cyan">N03</text>
+      <text x="10" y="31" class="node-label primary">API</text>
+      <text x="10" y="45" class="node-meta muted">FASTAPI</text>
     </g>
 
-    <path d="M785 305H825L838 294L852 311L868 301L883 305H930L943 298L956 305H1158" fill="none" stroke="#087A4B" stroke-width="1.3" opacity=".72"/>
+    <rect x="876" y="184" width="7" height="7" class="health-port"/>
+    <text x="826" y="204" class="port-label green">H01 OPEN</text>
+    <rect x="1116" y="184" width="7" height="7" class="health-port"/>
+    <text x="1090" y="204" class="port-label green">H02 OPEN</text>
     <g class="motion-layer">
-      <circle cx="1003" cy="206" r="4" class="cyan">
-        <animate attributeName="opacity" values=".35;1;.35" dur="4.8s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="1123" cy="146" r="3.5" class="green">
+      <rect x="876" y="184" width="7" height="7" class="health-port">
         <animate attributeName="opacity" values=".3;1;.3" dur="5.6s" begin="-2s" repeatCount="indefinite"/>
-      </circle>
+      </rect>
+      <rect x="1116" y="184" width="7" height="7" class="health-port">
+        <animate attributeName="opacity" values=".35;1;.35" dur="4.8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <path class="data-bus" d="M1083 188V214H925V244"/>
+    <path class="data-bus" d="M1083 214V244"/>
+    <rect x="1081" y="212" width="5" height="5" class="junction"/>
+    <text x="943" y="228" class="bus-label amber">SQL / META</text>
+    <text x="1089" y="232" class="bus-label amber">DOC / OBJECT</text>
+    <text x="1089" y="215" class="port-label amber">J01</text>
+
+    <g transform="translate(875 244)">
+      <rect width="100" height="52" rx="2" class="panel border" stroke-width="1.2"/>
+      <text x="10" y="14" class="node-id amber">N04</text>
+      <text x="10" y="31" class="node-label primary">DB</text>
+      <text x="10" y="45" class="node-meta muted">POSTGRESQL</text>
+    </g>
+    <g transform="translate(1015 244)">
+      <rect width="132" height="52" rx="2" class="panel border" stroke-width="1.2"/>
+      <text x="10" y="14" class="node-id amber">N05</text>
+      <text x="10" y="31" class="node-label primary">OBJECT</text>
+      <text x="10" y="45" class="node-meta muted">MINIO</text>
     </g>
   </g>
 
