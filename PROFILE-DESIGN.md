@@ -129,6 +129,20 @@ font-family:
 | PhysArchive project card | `0 0 1200 320` | `0 0 720 580` |
 | Contact console | `0 0 1200 190` | `0 0 720 360` |
 
+### Header / Contact 透明畫布規格
+
+Header 與 Contact 的 SVG 根畫布必須保持**完全透明**。實作上直接省略覆蓋完整
+`viewBox` 的背景 `<rect>`，透明區域由 SVG 原生透明畫布呈現，而不是以頁面背景色
+模擬。即使矩形目前宣告為透明，也不要保留 full-view rect；CSS class 或 SMIL
+animation 可能在未來重新覆寫其 fill / opacity。驗證器因此會拒絕 render tree
+中的任何 full-view rect，非渲染用途的 `defs`、`clipPath` 等結構除外。
+
+這項規格只移除最外層畫布底色，不得改動內層主要 panel。內層的 theme panel 填色、
+細邊框、圓角、角落標記、title block、文字、Header 動畫及 topology schematic
+都必須保留。desktop 與 mobile 的 `viewBox`、SVG 尺寸、panel 座標、內容位置及
+版面比例不得因透明化而改變。畫布邊界到內層 panel 之間的留白，應在 GitHub
+README 背景上顯示為透明。
+
 命名規則：
 
 ```text
@@ -193,12 +207,12 @@ https://physarchive.com/
 README 內 SVG 路徑使用 query version，例如：
 
 ```html
-srcset="./assets/header-dark.svg?v=2"
+srcset="./assets/header-dark.svg?v=3"
 ```
 
 修改任何已發布 SVG 後：
 
-1. 將該組 asset 的所有 dark/light、desktop/mobile 引用更新為同一個新整數，例如 `v=2`。
+1. 將該組 asset 的所有 dark/light、desktop/mobile 引用更新為同一個新整數，例如 `v=3`。
 2. `<img>` fallback 與所有 `<source>` 必須使用同一版本。
 3. 不更名 asset；version 只用於清除 GitHub/CDN 的舊快取。
 4. 路徑驗證時先移除 query string，再檢查實體檔案。

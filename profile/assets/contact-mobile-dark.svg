@@ -15,7 +15,6 @@
     </style>
   </defs>
 
-  <rect width="720" height="360" fill="#050A10"/>
   <rect x="10" y="10" width="700" height="340" rx="6" fill="#09131D" stroke="#1B3A4B" stroke-width="1.5"/>
   <path d="M10 55H710" stroke="#1B3A4B" stroke-width="1.5"/>
 
