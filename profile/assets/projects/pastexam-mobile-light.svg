@@ -1,91 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 580" role="img" aria-labelledby="pastexam-mobile-title pastexam-mobile-desc">
-  <title id="pastexam-mobile-title">PHYSARCHIVE — NTHU Physics Past Exam Platform</title>
-  <desc id="pastexam-mobile-desc">Mobile light-mode project card showing the PhysArchive identity, course search and document workflows, verified service topology, and engineering stack.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 580" role="img" aria-labelledby="title desc">
+  <title id="title">PHYSARCHIVE — NTHU Physics Past Exam Platform</title>
+  <desc id="desc">Mobile light-mode engineering console card for the student archive platform, showing identity, archive workflow, service topology, features, and technology stack.</desc>
   <defs>
-    <pattern id="mobile-console-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#B8C9D1" stroke-width="1" opacity=".34"/>
+    <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" fill="none" stroke="#B8C9D1" stroke-width="0.6" opacity="0.42"/>
     </pattern>
     <style>
-      text {
-        font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
-        font-weight: 700;
-      }
-      .title { font-weight: 900; }
-      .label { font-weight: 800; letter-spacing: .6px; }
-      .primary { fill: #0A1720; }
-      .muted { fill: #536875; }
-      .green { fill: #087A4B; }
-      .cyan { fill: #006D85; }
-      .amber { fill: #8A6500; }
-      .panel { fill: #FFFFFF; stroke: #B8C9D1; }
-      .raised { fill: #EAF0F2; stroke: #B8C9D1; }
-      .wire { fill: none; stroke: #006D85; stroke-width: 2; }
-      .wire-muted { fill: none; stroke: #B8C9D1; stroke-width: 1.5; }
+      text{font-family:"Courier New",Courier,"Liberation Mono","DejaVu Sans Mono",monospace;font-weight:700}
+      .panel{fill:#FFFFFF;stroke:#B8C9D1;stroke-width:1.5}
+      .raised{fill:#EAF0F2;stroke:#B8C9D1;stroke-width:1}
+      .module{fill:#FFFFFF;stroke:#B8C9D1;stroke-width:1}
+      .divider{fill:none;stroke:#B8C9D1;stroke-width:1}
+      .primary{fill:#0A1720}.muted{fill:#536875}.green{fill:#087A4B}.cyan{fill:#006D85}.amber{fill:#8A6500}
+      .title{font-size:31px;font-weight:900;letter-spacing:0.6px}
+      .subtitle{font-size:14px;font-weight:800}
+      .meta{font-size:11.5px;font-weight:700;letter-spacing:0.2px}
+      .label{font-size:11px;font-weight:800;letter-spacing:0.6px}
+      .body{font-size:13px;font-weight:700}
+      .node-id{font-size:9px;font-weight:800;letter-spacing:0.5px}
+      .node-label{font-size:10.5px;font-weight:800}
+      .node-meta{font-size:8.5px;font-weight:700}
+      .request-bus{fill:none;stroke:#006D85;stroke-width:1.5}
+      .data-bus{fill:none;stroke:#8A6500;stroke-width:1.4}
     </style>
   </defs>
 
-  <rect x="1" y="1" width="718" height="578" rx="18" fill="#F4F7F8" stroke="#B8C9D1" stroke-width="2"/>
-  <rect x="16" y="72" width="688" height="398" rx="12" fill="url(#mobile-console-grid)" opacity=".62"/>
+  <rect class="panel" x="10" y="10" width="700" height="560" rx="6"/>
+  <path class="divider" d="M10 58H710M466 18V50"/>
+  <rect x="26" y="29" width="8" height="8" class="green"/>
+  <text x="46" y="38" class="label primary">PROJECT CONSOLE / 01</text>
+  <text x="694" y="38" text-anchor="end" class="label green">STATUS: ACTIVE DEVELOPMENT</text>
+  <text x="26" y="53" class="meta muted">PUBLIC STUDENT SYSTEM</text>
 
-  <rect class="panel" x="16" y="16" width="688" height="42" rx="9"/>
-  <circle cx="36" cy="37" r="6" fill="#087A4B"/>
-  <circle cx="56" cy="37" r="4" fill="#006D85" opacity=".75"/>
-  <text class="label primary" x="74" y="44" font-size="18">PROJECT CONSOLE / 01</text>
-  <text class="label green" x="688" y="44" font-size="18" text-anchor="end">STATUS: ACTIVE DEVELOPMENT</text>
+  <rect class="raised" x="26" y="72" width="668" height="122" rx="3"/>
+  <rect x="30" y="86" width="4" height="50" class="green"/>
+  <text x="46" y="108" class="title primary">PHYSARCHIVE</text>
+  <text x="46" y="130" class="subtitle cyan">NTHU PHYSICS PAST EXAM PLATFORM</text>
+  <text x="46" y="153" class="body primary">面向清大物理系學生的考古題與課程資料平台</text>
+  <text x="46" y="176" class="meta muted">SEARCHABLE MATERIALS / STUDENT WORKFLOWS</text>
+  <text x="678" y="108" text-anchor="end" class="label muted">REPOSITORY</text>
+  <text x="678" y="127" text-anchor="end" class="meta primary">NTHU-Physics-SA-IT/PastExamWeb_PHY</text>
+  <text x="678" y="154" text-anchor="end" class="label muted">LIVE</text>
+  <text x="678" y="173" text-anchor="end" class="meta green">physarchive.com</text>
 
-  <rect class="panel" x="16" y="72" width="688" height="122" rx="12"/>
-  <rect x="32" y="88" width="5" height="70" rx="2.5" fill="#006D85"/>
-  <text class="title primary" x="48" y="121" font-size="42">PHYSARCHIVE</text>
-  <text class="label cyan" x="48" y="151" font-size="20">NTHU PHYSICS PAST EXAM PLATFORM</text>
-  <text class="primary" x="48" y="180" font-size="20">面向清大物理系學生的考古題與課程資料平台</text>
-  <text class="label amber" x="684" y="115" font-size="18" text-anchor="end">PUBLIC STUDENT SYSTEM</text>
+  <rect class="raised" x="26" y="208" width="668" height="136" rx="3"/>
+  <rect x="26" y="208" width="668" height="136" rx="3" fill="url(#grid)"/>
+  <text x="42" y="232" class="label cyan">QUERY / COURSE ARCHIVE</text>
+  <text x="678" y="232" text-anchor="end" class="meta muted">DOCUMENT INDEX</text>
+  <rect class="module" x="42" y="242" width="636" height="30" rx="2"/>
+  <rect x="54" y="253" width="8" height="8" fill="none" stroke="#087A4B" stroke-width="1.5"/>
+  <path d="M61 260L66 265" stroke="#087A4B" stroke-width="1.5"/>
+  <text x="76" y="262" class="meta muted">course / semester / instructor / exam type</text>
 
-  <rect class="panel" x="16" y="208" width="688" height="136" rx="12"/>
-  <text class="label cyan" x="32" y="235" font-size="20">QUERY / COURSE ARCHIVE</text>
-  <text class="label muted" x="688" y="235" font-size="18" text-anchor="end">DOCUMENT INDEX</text>
-  <rect class="raised" x="30" y="246" width="660" height="36" rx="7"/>
-  <circle cx="48" cy="263" r="7" fill="none" stroke="#006D85" stroke-width="2"/>
-  <path d="M53 268l7 7" class="wire"/>
-  <text class="muted" x="70" y="270" font-size="18">course / semester / instructor / exam type</text>
+  <rect class="module" x="42" y="284" width="194" height="44" rx="2"/>
+  <rect x="54" y="297" width="6" height="6" class="green"/>
+  <text x="70" y="303" class="label primary">COURSE INDEX</text>
+  <text x="54" y="319" class="node-meta muted">COURSE / SEMESTER / ANSWER FILTER</text>
 
-  <rect class="raised" x="30" y="294" width="210" height="38" rx="7"/>
-  <circle cx="47" cy="313" r="4" fill="#087A4B"/>
-  <text class="label primary" x="61" y="319" font-size="18">COURSE INDEX</text>
-  <rect class="raised" x="255" y="294" width="210" height="38" rx="7"/>
-  <circle cx="272" cy="313" r="4" fill="#006D85"/>
-  <text class="label primary" x="286" y="319" font-size="18">PDF PREVIEW</text>
-  <rect class="raised" x="480" y="294" width="210" height="38" rx="7"/>
-  <circle cx="497" cy="313" r="4" fill="#8A6500"/>
-  <text class="label primary" x="511" y="319" font-size="18">SUBMIT + REVIEW</text>
+  <rect class="module" x="248" y="284" width="194" height="44" rx="2"/>
+  <rect x="260" y="297" width="6" height="6" class="cyan"/>
+  <text x="276" y="303" class="label primary">PDF PREVIEW</text>
+  <text x="260" y="319" class="node-meta muted">PREVIEW / DOWNLOAD / COMMENTS</text>
 
-  <rect class="panel" x="16" y="358" width="688" height="112" rx="12"/>
-  <text class="label cyan" x="32" y="385" font-size="20">SERVICE TOPOLOGY</text>
-  <text class="label muted" x="688" y="385" font-size="18" text-anchor="end">DOCKER COMPOSE</text>
+  <rect class="module" x="454" y="284" width="224" height="44" rx="2"/>
+  <rect x="466" y="297" width="6" height="6" class="amber"/>
+  <text x="482" y="303" class="label primary">SUBMIT + REVIEW</text>
+  <text x="466" y="319" class="node-meta green">SUBMISSION STATUS / DISCUSS</text>
 
-  <path d="M126 431H160M250 431H282M392 431H438M538 431H572" class="wire"/>
-  <circle cx="143" cy="431" r="4" fill="#006D85"/>
-  <circle cx="415" cy="431" r="4" fill="#087A4B"/>
+  <rect class="raised" x="26" y="358" width="668" height="112" rx="3"/>
+  <rect x="26" y="358" width="668" height="112" rx="3" fill="url(#grid)"/>
+  <text x="42" y="382" class="label cyan">SERVICE TOPOLOGY</text>
+  <text x="678" y="382" text-anchor="end" class="meta muted">DOCKER COMPOSE</text>
+  <path class="request-bus" d="M150 419H166M274 419H290"/>
+  <path class="data-bus" d="M398 419H414M522 419H538"/>
 
-  <rect class="raised" x="30" y="410" width="96" height="42" rx="7"/>
-  <text class="label amber" x="78" y="438" font-size="18" text-anchor="middle">NGINX</text>
-  <rect class="raised" x="160" y="410" width="90" height="42" rx="7"/>
-  <text class="label cyan" x="205" y="438" font-size="18" text-anchor="middle">VUE 3</text>
-  <rect class="raised" x="282" y="410" width="110" height="42" rx="7"/>
-  <text class="label green" x="337" y="438" font-size="18" text-anchor="middle">FASTAPI</text>
-  <rect class="raised" x="438" y="410" width="100" height="42" rx="7"/>
-  <text class="label primary" x="488" y="438" font-size="18" text-anchor="middle">DATA</text>
-  <rect class="raised" x="572" y="410" width="112" height="42" rx="7"/>
-  <text class="label primary" x="628" y="438" font-size="18" text-anchor="middle">OBJECT</text>
+  <rect class="module" x="42" y="394" width="108" height="50" rx="2"/>
+  <rect x="50" y="402" width="5" height="5" class="green"/>
+  <text x="63" y="407" class="node-id muted">N01</text>
+  <text x="96" y="421" text-anchor="middle" class="node-label primary">EDGE</text>
+  <text x="96" y="435" text-anchor="middle" class="node-meta muted">NGINX</text>
 
-  <rect class="raised" x="16" y="482" width="688" height="40" rx="8"/>
-  <path d="M153.6 482v40M291.2 482v40M428.8 482v40M566.4 482v40" class="wire-muted"/>
-  <text class="label green" x="84.8" y="508" font-size="18" text-anchor="middle">SEARCH</text>
-  <text class="label cyan" x="222.4" y="508" font-size="18" text-anchor="middle">PREVIEW</text>
-  <text class="label amber" x="360" y="508" font-size="18" text-anchor="middle">SUBMIT</text>
-  <text class="label green" x="497.6" y="508" font-size="18" text-anchor="middle">REVIEW</text>
-  <text class="label cyan" x="635.2" y="508" font-size="18" text-anchor="middle">DISCUSS</text>
+  <rect class="module" x="166" y="394" width="108" height="50" rx="2"/>
+  <rect x="174" y="402" width="5" height="5" class="cyan"/>
+  <text x="187" y="407" class="node-id muted">N02</text>
+  <text x="220" y="421" text-anchor="middle" class="node-label primary">UI</text>
+  <text x="220" y="435" text-anchor="middle" class="node-meta muted">VUE 3</text>
 
-  <text class="label muted" x="24" y="539" font-size="16.5">APP: VUE 3 / VITE / PRIMEVUE / TAILWIND / PYTHON / FASTAPI</text>
-  <text class="label muted" x="24" y="556" font-size="16.5">DATA: SQLMODEL / POSTGRESQL / REDIS / MINIO</text>
-  <text class="label muted" x="24" y="573" font-size="16.5">INFRA: DOCKER COMPOSE / NGINX / GITHUB ACTIONS</text>
+  <rect class="module" x="290" y="394" width="108" height="50" rx="2"/>
+  <rect x="298" y="402" width="5" height="5" class="cyan"/>
+  <text x="311" y="407" class="node-id muted">N03</text>
+  <text x="344" y="421" text-anchor="middle" class="node-label primary">API</text>
+  <text x="344" y="435" text-anchor="middle" class="node-meta muted">FASTAPI</text>
+
+  <rect class="module" x="414" y="394" width="108" height="50" rx="2"/>
+  <rect x="422" y="402" width="5" height="5" class="amber"/>
+  <text x="435" y="407" class="node-id muted">N04</text>
+  <text x="468" y="421" text-anchor="middle" class="node-label primary">DATA</text>
+  <text x="468" y="435" text-anchor="middle" class="node-meta muted">PG + REDIS</text>
+
+  <rect class="module" x="538" y="394" width="140" height="50" rx="2"/>
+  <rect x="546" y="402" width="5" height="5" class="amber"/>
+  <text x="559" y="407" class="node-id muted">N05</text>
+  <text x="608" y="421" text-anchor="middle" class="node-label primary">OBJECT</text>
+  <text x="608" y="435" text-anchor="middle" class="node-meta muted">MINIO</text>
+  <text x="42" y="461" class="node-meta muted">REQUEST / DATA / OBJECT STORAGE PATH</text>
+
+  <rect class="raised" x="26" y="482" width="668" height="40" rx="2"/>
+  <path class="divider" d="M159.6 482V522M293.2 482V522M426.8 482V522M560.4 482V522"/>
+  <rect x="42" y="499" width="6" height="6" class="green"/>
+  <text x="58" y="506" class="label primary">SEARCH</text>
+  <rect x="175" y="499" width="6" height="6" class="cyan"/>
+  <text x="191" y="506" class="label primary">PREVIEW</text>
+  <rect x="309" y="499" width="6" height="6" class="amber"/>
+  <text x="325" y="506" class="label primary">SUBMIT</text>
+  <rect x="443" y="499" width="6" height="6" class="green"/>
+  <text x="459" y="506" class="label primary">REVIEW</text>
+  <rect x="577" y="499" width="6" height="6" class="cyan"/>
+  <text x="593" y="506" class="label primary">DISCUSS</text>
+
+  <text x="26" y="538" class="meta muted" xml:space="preserve"><tspan class="cyan">APP:  </tspan><tspan>VUE 3 / VITE / PRIMEVUE / TAILWIND / PYTHON / FASTAPI</tspan></text>
+  <text x="26" y="552" class="meta muted" xml:space="preserve"><tspan class="amber">DATA: </tspan><tspan>SQLMODEL / POSTGRESQL / REDIS / MINIO</tspan></text>
+  <text x="26" y="566" class="meta muted" xml:space="preserve"><tspan class="green">INFRA:</tspan><tspan> DOCKER COMPOSE / NGINX / GITHUB ACTIONS</tspan></text>
 </svg>

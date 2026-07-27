@@ -36,7 +36,7 @@ EXPECTED_ASSETS = set(EXPECTED_VIEWBOXES)
 EXPECTED_CACHE_VERSIONS = {
     "header": "3",
     "contact": "3",
-    "pastexam": "1",
+    "pastexam": "2",
 }
 
 THEME_PAIRS = (

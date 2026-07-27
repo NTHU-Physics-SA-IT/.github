@@ -48,22 +48,22 @@ COLLABORATION   -> build systems together
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-dark.svg?v=1"
+      srcset="./assets/projects/pastexam-mobile-dark.svg?v=2"
     />
     <source
       media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-light.svg?v=1"
+      srcset="./assets/projects/pastexam-mobile-light.svg?v=2"
     />
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./assets/projects/pastexam-dark.svg?v=1"
+      srcset="./assets/projects/pastexam-dark.svg?v=2"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./assets/projects/pastexam-light.svg?v=1"
+      srcset="./assets/projects/pastexam-light.svg?v=2"
     />
     <img
-      src="./assets/projects/pastexam-light.svg?v=1"
+      src="./assets/projects/pastexam-light.svg?v=2"
       width="100%"
       alt="PhysArchive system card showing course search, PDF preview, submission and review workflows, and the verified service architecture"
     />
