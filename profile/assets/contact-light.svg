@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 190"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Contact the NTHU Physics Student Association IT Team</title>
+  <desc id="desc">A light scientific terminal console listing the GitHub organization, Physics Archive website, and open contribution status.</desc>
+  <style>
+    .mono {
+      font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
+      font-weight: 700;
+    }
+    .command {
+      font-weight: 800;
+    }
+  </style>
+
+  <rect width="1200" height="190" rx="16" fill="#F4F7F8"/>
+  <rect x="4" y="4" width="1192" height="182" rx="13" fill="#FFFFFF" stroke="#B8C9D1" stroke-width="2"/>
+  <path d="M4 36H1196" stroke="#B8C9D1" stroke-width="2"/>
+
+  <circle cx="24" cy="20" r="4" fill="#087A4B"/>
+  <circle cx="40" cy="20" r="4" fill="#006D85"/>
+  <circle cx="56" cy="20" r="4" fill="#8A6500"/>
+  <text x="76" y="25" class="mono" font-size="13" fill="#536875">CONTACT CONSOLE // PUBLIC ENDPOINTS</text>
+  <text x="1174" y="25" text-anchor="end" class="mono" font-size="12" fill="#536875">LINK: READY</text>
+
+  <g aria-label="Public contact information">
+    <text x="30" y="65" class="mono command" font-size="18" fill="#0A1720">&gt; connect --organization NTHU-Physics-SA-IT</text>
+    <text x="30" y="101" class="mono" font-size="16" fill="#0A1720">
+      <tspan fill="#006D85">GITHUB</tspan>
+      <tspan fill="#536875"> : </tspan>
+      <tspan>github.com/NTHU-Physics-SA-IT</tspan>
+    </text>
+    <text x="30" y="132" class="mono" font-size="16" fill="#0A1720">
+      <tspan fill="#006D85">SYSTEM</tspan>
+      <tspan fill="#536875"> : </tspan>
+      <tspan>physarchive.com</tspan>
+    </text>
+    <text x="30" y="163" class="mono" font-size="16" fill="#087A4B">
+      <tspan>STATUS</tspan>
+      <tspan fill="#536875"> : </tspan>
+      <tspan>OPEN TO CONTRIBUTIONS_</tspan>
+    </text>
+  </g>
+
+  <g aria-hidden="true">
+    <rect x="800" y="54" width="360" height="110" rx="10" fill="#EAF0F2" stroke="#B8C9D1" stroke-width="2"/>
+    <path d="M820 82H1140M820 109H1140M820 136H1140" stroke="#B8C9D1" stroke-width="1"/>
+    <path d="M846 68V150M910 68V150M974 68V150M1038 68V150M1102 68V150" stroke="#B8C9D1" stroke-width="1"/>
+    <path d="M820 122H842L854 105L871 139L890 91L910 122H938L951 113L965 122H992L1007 78L1022 147L1038 122H1065L1078 108L1092 132L1106 122H1140"
+          fill="none" stroke="#006D85" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M846 82L910 109L974 82L1038 109L1102 82" fill="none" stroke="#087A4B" stroke-width="1.5" opacity=".52"/>
+    <circle cx="846" cy="82" r="5" fill="#087A4B"/>
+    <circle cx="910" cy="109" r="5" fill="#EAF0F2" stroke="#087A4B" stroke-width="2"/>
+    <circle cx="974" cy="82" r="5" fill="#087A4B"/>
+    <circle cx="1038" cy="109" r="5" fill="#EAF0F2" stroke="#087A4B" stroke-width="2"/>
+    <circle cx="1102" cy="82" r="5" fill="#087A4B"/>
+    <rect x="1110" y="145" width="30" height="4" rx="2" fill="#8A6500"/>
+  </g>
+</svg>

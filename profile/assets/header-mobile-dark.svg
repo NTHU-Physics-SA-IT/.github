@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" role="img" aria-labelledby="title desc">
+  <title id="title">NTHU Physics Student Association IT Team mobile system console</title>
+  <desc id="desc">Dark mobile organization header with a readable terminal boot sequence above a compact service topology for the physics archive platform.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#1B3A4B" stroke-width="1" opacity=".26"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#55D8F5"/>
+    </marker>
+    <clipPath id="type-command">
+      <rect x="48" y="178" width="0" height="27">
+        <animate attributeName="width" values="0;0;40;80;120;160;200;240;280;320;360;400;460;460;0" keyTimes="0;.028;.035;.042;.049;.056;.063;.070;.077;.084;.091;.098;.105;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-identity">
+      <rect x="48" y="211" width="0" height="27">
+        <animate attributeName="width" values="0;0;50;100;150;200;250;300;350;400;450;500;610;610;0" keyTimes="0;.108;.113;.118;.123;.128;.133;.138;.143;.148;.153;.158;.163;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-unit">
+      <rect x="48" y="244" width="0" height="27">
+        <animate attributeName="width" values="0;0;50;100;150;200;250;300;350;400;450;500;610;610;0" keyTimes="0;.166;.171;.176;.181;.186;.191;.196;.201;.206;.211;.216;.221;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-platform">
+      <rect x="48" y="277" width="0" height="27">
+        <animate attributeName="width" values="0;0;42;84;126;168;210;252;294;336;378;420;460;460;0" keyTimes="0;.224;.228;.232;.236;.240;.244;.248;.252;.256;.260;.264;.268;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-mission">
+      <rect x="48" y="310" width="0" height="27">
+        <animate attributeName="width" values="0;0;44;88;132;176;220;264;308;352;396;480;480;0" keyTimes="0;.270;.275;.280;.285;.290;.295;.300;.305;.310;.315;.320;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-status">
+      <rect x="48" y="343" width="0" height="27">
+        <animate attributeName="width" values="0;0;32;64;96;128;160;192;224;256;288;360;360;0" keyTimes="0;.318;.321;.324;.327;.330;.333;.336;.339;.342;.345;.351;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <style>
+      text {
+        font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
+        font-weight: 700;
+      }
+      .bg { fill: #050A10; }
+      .panel { fill: #09131D; }
+      .raised { fill: #0D1B27; }
+      .primary { fill: #F1F6F8; }
+      .muted { fill: #91A6B5; }
+      .green { fill: #65F2AE; }
+      .cyan { fill: #55D8F5; }
+      .amber { fill: #EBCB72; }
+      .border { stroke: #1B3A4B; }
+      .brand { font-size: 34px; font-weight: 900; letter-spacing: 1.2px; }
+      .brand-zh { font-size: 24px; font-weight: 900; letter-spacing: 1.5px; }
+      .tagline { font-size: 16.5px; font-weight: 800; letter-spacing: .5px; }
+      .meta { font-size: 15px; font-weight: 700; letter-spacing: 1.1px; }
+      .terminal { font-size: 18.5px; font-weight: 700; }
+      .node-label { font-size: 18px; font-weight: 800; letter-spacing: .8px; }
+      .node-meta { font-size: 16px; font-weight: 700; letter-spacing: .2px; }
+      .rail { font-size: 16px; font-weight: 800; letter-spacing: .8px; }
+      .topology-line { fill: none; stroke: #55D8F5; stroke-width: 1.8; opacity: .72; marker-end: url(#arrow); }
+      .orbit { fill: none; stroke: #1B3A4B; stroke-width: 1.2; stroke-dasharray: 5 9; opacity: .72; }
+      @media (prefers-reduced-motion: reduce) {
+        .motion-layer { display: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="720" height="620"/>
+  <rect width="720" height="620" fill="url(#grid)"/>
+  <rect x="10" y="10" width="700" height="600" rx="10" class="panel border" stroke-width="1.5"/>
+
+  <g aria-hidden="true">
+    <path d="M24 55H696" class="border" stroke-width="1"/>
+    <rect x="26" y="27" width="9" height="9" class="green"/>
+    <circle cx="657" cy="31" r="4.5" class="green"/>
+    <circle cx="674" cy="31" r="4.5" class="cyan" opacity=".75"/>
+    <circle cx="691" cy="31" r="4.5" class="amber" opacity=".75"/>
+  </g>
+
+  <text x="45" y="38" class="meta muted">ORG / SYSTEM CONSOLE</text>
+  <text x="36" y="94" class="brand primary">NTHU PHYSICS SA // IT TEAM</text>
+  <text x="36" y="126" class="brand-zh primary">清大物理系系學會資訊組</text>
+  <text x="36" y="151" class="tagline cyan">BUILDING RELIABLE DIGITAL INFRASTRUCTURE FOR PHYSICS STUDENTS</text>
+
+  <rect x="24" y="160" width="672" height="236" rx="7" class="raised border" stroke-width="1.3"/>
+  <rect x="37" y="176" width="4" height="197" class="green" opacity=".65"/>
+
+  <!-- Full static transcript remains visible without animation support. -->
+  <g class="static-fallback terminal">
+    <text x="48" y="198" class="green">&gt; boot --organization NTHU-Physics-SA-IT</text>
+    <text x="48" y="231" class="primary">[ OK ] IDENTITY     : PHYSICS STUDENT ASSOCIATION</text>
+    <text x="48" y="264" class="primary">[ OK ] UNIT         : INFORMATION TECHNOLOGY TEAM</text>
+    <text x="48" y="297" class="primary">[ OK ] PLATFORM     : STUDENT SYSTEMS</text>
+    <text x="48" y="330" class="amber">[ RUN ] MISSION     : BUILD RELIABLE TOOLS</text>
+    <text x="48" y="363" class="green">[READY] STATUS      : ONLINE_</text>
+  </g>
+
+  <g class="motion-layer">
+    <rect x="44" y="173" width="640" height="204" class="raised" opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.002;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+    </rect>
+    <g class="terminal">
+      <g clip-path="url(#type-command)">
+        <text x="48" y="198" class="green">&gt; boot --organization NTHU-Physics-SA-IT</text>
+      </g>
+      <g clip-path="url(#type-identity)">
+        <text x="48" y="231" class="primary">[ OK ] IDENTITY     : PHYSICS STUDENT ASSOCIATION</text>
+      </g>
+      <g clip-path="url(#type-unit)">
+        <text x="48" y="264" class="primary">[ OK ] UNIT         : INFORMATION TECHNOLOGY TEAM</text>
+      </g>
+      <g clip-path="url(#type-platform)">
+        <text x="48" y="297" class="primary">[ OK ] PLATFORM     : STUDENT SYSTEMS</text>
+      </g>
+      <g clip-path="url(#type-mission)">
+        <text x="48" y="330" class="amber">[ RUN ] MISSION     : BUILD RELIABLE TOOLS</text>
+      </g>
+      <g clip-path="url(#type-status)">
+        <text x="48" y="363" class="green">[READY] STATUS      : ONLINE_</text>
+      </g>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.348;.351;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      <rect x="370" y="346" width="11" height="22" class="green">
+        <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <g>
+    <rect x="24" y="410" width="672" height="164" rx="7" class="raised border" stroke-width="1.3"/>
+    <text x="42" y="434" class="meta cyan">SERVICE TOPOLOGY / PUBLIC</text>
+    <path d="M38 440H682" class="border" stroke-width="1"/>
+    <path class="orbit" d="M38 510C92 428 612 427 682 510C620 579 96 578 38 510Z"/>
+
+    <path class="topology-line" d="M162 473H306"/>
+    <path class="topology-line" d="M410 473H558"/>
+    <path class="topology-line" d="M358 494C358 508 252 502 252 516"/>
+    <path class="topology-line" d="M358 494C358 508 444 502 444 516"/>
+
+    <g transform="translate(44 452)">
+      <rect width="118" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="5" height="42" rx="2" class="green"/>
+      <text x="15" y="19" class="node-label primary">ARCHIVE</text>
+      <text x="15" y="36" class="node-meta muted">INDEX</text>
+    </g>
+    <g transform="translate(306 452)">
+      <rect width="104" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="5" height="42" rx="2" class="cyan"/>
+      <text x="15" y="19" class="node-label primary">API</text>
+      <text x="15" y="36" class="node-meta muted">ROUTE</text>
+    </g>
+    <g transform="translate(558 452)">
+      <rect width="118" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="5" height="42" rx="2" class="green"/>
+      <text x="15" y="19" class="node-label primary">EDGE</text>
+      <text x="15" y="36" class="node-meta muted">DELIVER</text>
+    </g>
+    <g transform="translate(200 516)">
+      <rect width="104" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="5" height="42" rx="2" class="amber"/>
+      <text x="15" y="19" class="node-label primary">DB</text>
+      <text x="15" y="36" class="node-meta muted">PERSIST</text>
+    </g>
+    <g transform="translate(374 516)">
+      <rect width="140" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="5" height="42" rx="2" class="amber"/>
+      <text x="15" y="19" class="node-label primary">OBJECT</text>
+      <text x="15" y="36" class="node-meta muted">STORE</text>
+    </g>
+
+    <g class="motion-layer">
+      <circle cx="358" cy="473" r="4.5" class="cyan">
+        <animate attributeName="opacity" values=".35;1;.35" dur="4.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="617" cy="473" r="4" class="green">
+        <animate attributeName="opacity" values=".3;1;.3" dur="5.6s" begin="-2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <text x="360" y="601" text-anchor="middle" class="rail muted">SYSTEMS / ARCHIVES / AUTOMATION / OPEN COLLABORATION</text>
+</svg>

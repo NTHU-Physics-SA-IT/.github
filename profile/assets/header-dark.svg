@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">NTHU Physics Student Association IT Team system console</title>
+  <desc id="desc">Dark organization header with a terminal boot sequence and a service topology linking the physics archive, API, database, object storage, and edge delivery.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#1B3A4B" stroke-width="1" opacity=".26"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#55D8F5"/>
+    </marker>
+    <clipPath id="type-command">
+      <rect x="52" y="167" width="0" height="22">
+        <animate attributeName="width" values="0;0;32;64;96;128;160;192;224;256;288;320;344;344;0" keyTimes="0;.028;.035;.042;.049;.056;.063;.070;.077;.084;.091;.098;.105;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-identity">
+      <rect x="52" y="191" width="0" height="22">
+        <animate attributeName="width" values="0;0;38;76;114;152;190;228;266;304;342;380;418;418;0" keyTimes="0;.108;.113;.118;.123;.128;.133;.138;.143;.148;.153;.158;.163;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-unit">
+      <rect x="52" y="215" width="0" height="22">
+        <animate attributeName="width" values="0;0;38;76;114;152;190;228;266;304;342;380;418;418;0" keyTimes="0;.166;.171;.176;.181;.186;.191;.196;.201;.206;.211;.216;.221;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-platform">
+      <rect x="52" y="239" width="0" height="22">
+        <animate attributeName="width" values="0;0;30;60;90;120;150;180;210;240;270;300;330;330;0" keyTimes="0;.224;.228;.232;.236;.240;.244;.248;.252;.256;.260;.264;.268;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-mission">
+      <rect x="52" y="263" width="0" height="22">
+        <animate attributeName="width" values="0;0;34;68;102;136;170;204;238;272;306;340;340;0" keyTimes="0;.270;.275;.280;.285;.290;.295;.300;.305;.310;.315;.320;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-status">
+      <rect x="52" y="287" width="0" height="22">
+        <animate attributeName="width" values="0;0;27;54;81;108;135;162;189;216;243;270;270;0" keyTimes="0;.318;.321;.324;.327;.330;.333;.336;.339;.342;.345;.351;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <style>
+      text {
+        font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
+        font-weight: 700;
+      }
+      .bg { fill: #050A10; }
+      .panel { fill: #09131D; }
+      .raised { fill: #0D1B27; }
+      .primary { fill: #F1F6F8; }
+      .muted { fill: #91A6B5; }
+      .green { fill: #65F2AE; }
+      .cyan { fill: #55D8F5; }
+      .amber { fill: #EBCB72; }
+      .border { stroke: #1B3A4B; }
+      .brand { font-size: 32px; font-weight: 900; letter-spacing: 1.6px; }
+      .brand-zh { font-size: 19px; font-weight: 900; letter-spacing: 1.8px; }
+      .tagline { font-size: 13px; font-weight: 800; letter-spacing: 1.1px; }
+      .meta { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; }
+      .terminal { font-size: 14px; font-weight: 700; }
+      .node-label { font-size: 14px; font-weight: 800; letter-spacing: 1px; }
+      .node-meta { font-size: 11.5px; font-weight: 700; letter-spacing: .7px; }
+      .rail { font-size: 12px; font-weight: 800; letter-spacing: 1.7px; }
+      .topology-line { fill: none; stroke: #55D8F5; stroke-width: 1.4; opacity: .68; marker-end: url(#arrow); }
+      .orbit { fill: none; stroke: #1B3A4B; stroke-width: 1; stroke-dasharray: 4 8; opacity: .7; }
+      @media (prefers-reduced-motion: reduce) {
+        .motion-layer { display: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="360"/>
+  <rect width="1200" height="360" fill="url(#grid)"/>
+  <rect x="12" y="12" width="1176" height="336" rx="8" class="panel border" stroke-width="1.5"/>
+
+  <g aria-hidden="true">
+    <path d="M28 54H1172" class="border" stroke-width="1"/>
+    <path d="M750 66V326" class="border" stroke-width="1"/>
+    <rect x="28" y="27" width="8" height="8" class="green"/>
+    <circle cx="1137" cy="31" r="4" class="green"/>
+    <circle cx="1152" cy="31" r="4" class="cyan" opacity=".75"/>
+    <circle cx="1167" cy="31" r="4" class="amber" opacity=".75"/>
+  </g>
+
+  <text x="48" y="36" class="meta muted">ORG PROFILE / SYSTEM CONSOLE</text>
+  <text x="918" y="36" class="meta muted">SESSION 01 / PUBLIC</text>
+
+  <text x="40" y="92" class="brand primary">NTHU PHYSICS SA // IT TEAM</text>
+  <text x="40" y="121" class="brand-zh primary">清大物理系系學會資訊組</text>
+  <text x="40" y="146" class="tagline cyan">BUILDING RELIABLE DIGITAL INFRASTRUCTURE FOR PHYSICS STUDENTS</text>
+
+  <rect x="32" y="158" width="700" height="162" rx="6" class="raised border" stroke-width="1.2"/>
+  <path d="M32 158H732" class="border" stroke-width="1"/>
+  <rect x="43" y="168" width="3" height="136" class="green" opacity=".65"/>
+
+  <!-- Full static transcript: visible when SMIL is unavailable and in reduced-motion mode. -->
+  <g class="static-fallback terminal">
+    <text x="52" y="184" class="green">&gt; boot --organization NTHU-Physics-SA-IT</text>
+    <text x="52" y="208" class="primary">[ OK ] IDENTITY     : PHYSICS STUDENT ASSOCIATION</text>
+    <text x="52" y="232" class="primary">[ OK ] UNIT         : INFORMATION TECHNOLOGY TEAM</text>
+    <text x="52" y="256" class="primary">[ OK ] PLATFORM     : STUDENT SYSTEMS</text>
+    <text x="52" y="280" class="amber">[ RUN ] MISSION     : BUILD RELIABLE TOOLS</text>
+    <text x="52" y="304" class="green">[READY] STATUS      : ONLINE_</text>
+  </g>
+
+  <!-- A transparent-by-default cover preserves the static fallback when animation is unsupported. -->
+  <g class="motion-layer">
+    <rect x="48" y="164" width="672" height="146" class="raised" opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.002;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+    </rect>
+    <g class="terminal">
+      <g clip-path="url(#type-command)">
+        <text x="52" y="184" class="green">&gt; boot --organization NTHU-Physics-SA-IT</text>
+      </g>
+      <g clip-path="url(#type-identity)">
+        <text x="52" y="208" class="primary">[ OK ] IDENTITY     : PHYSICS STUDENT ASSOCIATION</text>
+      </g>
+      <g clip-path="url(#type-unit)">
+        <text x="52" y="232" class="primary">[ OK ] UNIT         : INFORMATION TECHNOLOGY TEAM</text>
+      </g>
+      <g clip-path="url(#type-platform)">
+        <text x="52" y="256" class="primary">[ OK ] PLATFORM     : STUDENT SYSTEMS</text>
+      </g>
+      <g clip-path="url(#type-mission)">
+        <text x="52" y="280" class="amber">[ RUN ] MISSION     : BUILD RELIABLE TOOLS</text>
+      </g>
+      <g clip-path="url(#type-status)">
+        <text x="52" y="304" class="green">[READY] STATUS      : ONLINE_</text>
+      </g>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.348;.351;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      <rect x="298" y="290" width="8" height="17" class="green">
+        <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <g>
+    <text x="774" y="82" class="meta cyan">SERVICE TOPOLOGY / PUBLIC</text>
+    <text x="774" y="102" class="node-meta muted">STUDENT KNOWLEDGE DELIVERY PATH</text>
+    <rect x="770" y="112" width="402" height="204" rx="6" class="raised border" stroke-width="1.2"/>
+    <path class="orbit" d="M784 215C817 113 1108 91 1157 207C1102 306 829 322 784 215Z"/>
+
+    <path class="topology-line" d="M910 146C936 146 929 206 955 206"/>
+    <path class="topology-line" d="M955 206C925 206 916 273 890 273"/>
+    <path class="topology-line" d="M1003 227V252"/>
+    <path class="topology-line" d="M1050 206C1075 206 1065 146 1075 146"/>
+
+    <g transform="translate(790 125)">
+      <rect width="120" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="4" height="42" rx="2" class="green"/>
+      <text x="14" y="18" class="node-label primary">ARCHIVE</text>
+      <text x="14" y="33" class="node-meta muted">COURSE INDEX</text>
+    </g>
+    <g transform="translate(955 185)">
+      <rect width="95" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="4" height="42" rx="2" class="cyan"/>
+      <text x="14" y="18" class="node-label primary">API</text>
+      <text x="14" y="33" class="node-meta muted">ROUTE</text>
+    </g>
+    <g transform="translate(795 252)">
+      <rect width="95" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="4" height="42" rx="2" class="amber"/>
+      <text x="14" y="18" class="node-label primary">DB</text>
+      <text x="14" y="33" class="node-meta muted">PERSIST</text>
+    </g>
+    <g transform="translate(925 252)">
+      <rect width="130" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="4" height="42" rx="2" class="amber"/>
+      <text x="14" y="18" class="node-label primary">OBJECT</text>
+      <text x="14" y="33" class="node-meta muted">DOCUMENT STORE</text>
+    </g>
+    <g transform="translate(1075 125)">
+      <rect width="95" height="42" rx="4" class="panel border" stroke-width="1.2"/>
+      <rect width="4" height="42" rx="2" class="green"/>
+      <text x="14" y="18" class="node-label primary">EDGE</text>
+      <text x="14" y="33" class="node-meta muted">DELIVER</text>
+    </g>
+
+    <path d="M785 305H825L838 294L852 311L868 301L883 305H930L943 298L956 305H1158" fill="none" stroke="#65F2AE" stroke-width="1.3" opacity=".72"/>
+    <g class="motion-layer">
+      <circle cx="1003" cy="206" r="4" class="cyan">
+        <animate attributeName="opacity" values=".35;1;.35" dur="4.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1123" cy="146" r="3.5" class="green">
+        <animate attributeName="opacity" values=".3;1;.3" dur="5.6s" begin="-2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <path d="M28 328H1172" class="border" stroke-width="1"/>
+  <text x="600" y="345" text-anchor="middle" class="rail muted">SYSTEMS / ARCHIVES / AUTOMATION / OPEN COLLABORATION</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 580" role="img" aria-labelledby="pastexam-mobile-title pastexam-mobile-desc">
+  <title id="pastexam-mobile-title">PHYSARCHIVE — NTHU Physics Past Exam Platform</title>
+  <desc id="pastexam-mobile-desc">Mobile light-mode project card showing the PhysArchive identity, course search and document workflows, verified service topology, and engineering stack.</desc>
+  <defs>
+    <pattern id="mobile-console-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#B8C9D1" stroke-width="1" opacity=".34"/>
+    </pattern>
+    <style>
+      text {
+        font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
+        font-weight: 700;
+      }
+      .title { font-weight: 900; }
+      .label { font-weight: 800; letter-spacing: .6px; }
+      .primary { fill: #0A1720; }
+      .muted { fill: #536875; }
+      .green { fill: #087A4B; }
+      .cyan { fill: #006D85; }
+      .amber { fill: #8A6500; }
+      .panel { fill: #FFFFFF; stroke: #B8C9D1; }
+      .raised { fill: #EAF0F2; stroke: #B8C9D1; }
+      .wire { fill: none; stroke: #006D85; stroke-width: 2; }
+      .wire-muted { fill: none; stroke: #B8C9D1; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="718" height="578" rx="18" fill="#F4F7F8" stroke="#B8C9D1" stroke-width="2"/>
+  <rect x="16" y="72" width="688" height="398" rx="12" fill="url(#mobile-console-grid)" opacity=".62"/>
+
+  <rect class="panel" x="16" y="16" width="688" height="42" rx="9"/>
+  <circle cx="36" cy="37" r="6" fill="#087A4B"/>
+  <circle cx="56" cy="37" r="4" fill="#006D85" opacity=".75"/>
+  <text class="label primary" x="74" y="44" font-size="18">PROJECT CONSOLE / 01</text>
+  <text class="label green" x="688" y="44" font-size="18" text-anchor="end">STATUS: ACTIVE DEVELOPMENT</text>
+
+  <rect class="panel" x="16" y="72" width="688" height="122" rx="12"/>
+  <rect x="32" y="88" width="5" height="70" rx="2.5" fill="#006D85"/>
+  <text class="title primary" x="48" y="121" font-size="42">PHYSARCHIVE</text>
+  <text class="label cyan" x="48" y="151" font-size="20">NTHU PHYSICS PAST EXAM PLATFORM</text>
+  <text class="primary" x="48" y="180" font-size="20">面向清大物理系學生的考古題與課程資料平台</text>
+  <text class="label amber" x="684" y="115" font-size="18" text-anchor="end">PUBLIC STUDENT SYSTEM</text>
+
+  <rect class="panel" x="16" y="208" width="688" height="136" rx="12"/>
+  <text class="label cyan" x="32" y="235" font-size="20">QUERY / COURSE ARCHIVE</text>
+  <text class="label muted" x="688" y="235" font-size="18" text-anchor="end">DOCUMENT INDEX</text>
+  <rect class="raised" x="30" y="246" width="660" height="36" rx="7"/>
+  <circle cx="48" cy="263" r="7" fill="none" stroke="#006D85" stroke-width="2"/>
+  <path d="M53 268l7 7" class="wire"/>
+  <text class="muted" x="70" y="270" font-size="18">course / semester / instructor / exam type</text>
+
+  <rect class="raised" x="30" y="294" width="210" height="38" rx="7"/>
+  <circle cx="47" cy="313" r="4" fill="#087A4B"/>
+  <text class="label primary" x="61" y="319" font-size="18">COURSE INDEX</text>
+  <rect class="raised" x="255" y="294" width="210" height="38" rx="7"/>
+  <circle cx="272" cy="313" r="4" fill="#006D85"/>
+  <text class="label primary" x="286" y="319" font-size="18">PDF PREVIEW</text>
+  <rect class="raised" x="480" y="294" width="210" height="38" rx="7"/>
+  <circle cx="497" cy="313" r="4" fill="#8A6500"/>
+  <text class="label primary" x="511" y="319" font-size="18">SUBMIT + REVIEW</text>
+
+  <rect class="panel" x="16" y="358" width="688" height="112" rx="12"/>
+  <text class="label cyan" x="32" y="385" font-size="20">SERVICE TOPOLOGY</text>
+  <text class="label muted" x="688" y="385" font-size="18" text-anchor="end">DOCKER COMPOSE</text>
+
+  <path d="M126 431H160M250 431H282M392 431H438M538 431H572" class="wire"/>
+  <circle cx="143" cy="431" r="4" fill="#006D85"/>
+  <circle cx="415" cy="431" r="4" fill="#087A4B"/>
+
+  <rect class="raised" x="30" y="410" width="96" height="42" rx="7"/>
+  <text class="label amber" x="78" y="438" font-size="18" text-anchor="middle">NGINX</text>
+  <rect class="raised" x="160" y="410" width="90" height="42" rx="7"/>
+  <text class="label cyan" x="205" y="438" font-size="18" text-anchor="middle">VUE 3</text>
+  <rect class="raised" x="282" y="410" width="110" height="42" rx="7"/>
+  <text class="label green" x="337" y="438" font-size="18" text-anchor="middle">FASTAPI</text>
+  <rect class="raised" x="438" y="410" width="100" height="42" rx="7"/>
+  <text class="label primary" x="488" y="438" font-size="18" text-anchor="middle">DATA</text>
+  <rect class="raised" x="572" y="410" width="112" height="42" rx="7"/>
+  <text class="label primary" x="628" y="438" font-size="18" text-anchor="middle">OBJECT</text>
+
+  <rect class="raised" x="16" y="482" width="688" height="40" rx="8"/>
+  <path d="M153.6 482v40M291.2 482v40M428.8 482v40M566.4 482v40" class="wire-muted"/>
+  <text class="label green" x="84.8" y="508" font-size="18" text-anchor="middle">SEARCH</text>
+  <text class="label cyan" x="222.4" y="508" font-size="18" text-anchor="middle">PREVIEW</text>
+  <text class="label amber" x="360" y="508" font-size="18" text-anchor="middle">SUBMIT</text>
+  <text class="label green" x="497.6" y="508" font-size="18" text-anchor="middle">REVIEW</text>
+  <text class="label cyan" x="635.2" y="508" font-size="18" text-anchor="middle">DISCUSS</text>
+
+  <text class="label muted" x="24" y="539" font-size="16.5">APP: VUE 3 / VITE / PRIMEVUE / TAILWIND / PYTHON / FASTAPI</text>
+  <text class="label muted" x="24" y="556" font-size="16.5">DATA: SQLMODEL / POSTGRESQL / REDIS / MINIO</text>
+  <text class="label muted" x="24" y="573" font-size="16.5">INFRA: DOCKER COMPOSE / NGINX / GITHUB ACTIONS</text>
+</svg>
