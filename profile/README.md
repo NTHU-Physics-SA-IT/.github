@@ -1,4 +1,5 @@
 <p align="center">
+  <!-- GitHub theme mapping: dark themes -> header[-mobile]-dark.svg; light themes and fallback -> header[-mobile]-light.svg. -->
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
@@ -45,6 +46,7 @@ COLLABORATION   -> build systems together
 目前 Organization 的公開系統以 **PhysArchive** 為核心；我們只展示有公開程式碼與可驗證內容的專案。
 
 <a href="https://github.com/NTHU-Physics-SA-IT/PastExamWeb_PHY">
+  <!-- GitHub theme mapping: dark themes -> pastexam[-mobile]-dark.svg; light themes and fallback -> pastexam[-mobile]-light.svg. -->
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
@@ -114,6 +116,7 @@ QUALITY        Vitest / Playwright / pytest / Ruff
 ## **06 / CONTACT**
 
 <a href="https://github.com/NTHU-Physics-SA-IT">
+  <!-- GitHub theme mapping: dark themes -> contact[-mobile]-dark.svg; light themes and fallback -> contact[-mobile]-light.svg. -->
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"

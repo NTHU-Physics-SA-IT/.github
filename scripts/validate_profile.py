@@ -382,6 +382,12 @@ def validate_readme(errors: list[str]) -> set[Path]:
         if not fallback.get("alt", "").strip():
             errors.append(f"README picture {index} fallback alt is empty")
 
+        fallback_path = _without_query_or_fragment(fallback.get("src", ""))
+        if not fallback_path.endswith("-light.svg"):
+            errors.append(
+                f"README picture {index} fallback must use a light SVG"
+            )
+
         # Every current asset family has mobile and desktop dark/light sources.
         if len(sources) != 4:
             errors.append(
@@ -394,6 +400,25 @@ def validate_readme(errors: list[str]) -> set[Path]:
             errors.append(
                 f"README picture {index} source order/media is incorrect"
             )
+
+        if fallback_path.endswith("-light.svg"):
+            family_prefix = fallback_path[: -len("-light.svg")]
+            expected_sources = (
+                f"{family_prefix}-mobile-dark.svg",
+                f"{family_prefix}-mobile-light.svg",
+                f"{family_prefix}-dark.svg",
+                f"{family_prefix}-light.svg",
+            )
+            actual_sources = tuple(
+                _without_query_or_fragment(source.get("srcset", ""))
+                for source in sources
+            )
+            if actual_sources != expected_sources:
+                errors.append(
+                    f"README picture {index} light/dark SVG mapping is "
+                    f"incorrect: expected {expected_sources}, "
+                    f"found {actual_sources}"
+                )
 
     for link in parser.links:
         parsed = urlsplit(link)
