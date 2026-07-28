@@ -1,28 +1,14 @@
 <p align="center">
-  <!-- GitHub theme mapping: dark themes -> header[-mobile]-dark.svg; light themes and fallback -> header[-mobile]-light.svg. -->
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/header-mobile-dark.svg?v=3"
-    />
-    <source
-      media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/header-mobile-light.svg?v=3"
-    />
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="./assets/header-dark.svg?v=3"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="./assets/header-light.svg?v=3"
-    />
-    <img
-      src="./assets/header-light.svg?v=3"
-      width="100%"
-      alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
-    />
-  </picture>
+  <img
+    src="./assets/header-light.svg?v=4#gh-light-mode-only"
+    width="100%"
+    alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
+  />
+  <img
+    src="./assets/header-dark.svg?v=4#gh-dark-mode-only"
+    width="100%"
+    alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
+  />
 </p>
 
 ## **01 / WHO WE ARE**
@@ -46,30 +32,16 @@ COLLABORATION   -> build systems together
 目前 Organization 的公開系統以 **PhysArchive** 為核心；我們只展示有公開程式碼與可驗證內容的專案。
 
 <a href="https://github.com/NTHU-Physics-SA-IT/PastExamWeb_PHY">
-  <!-- GitHub theme mapping: dark themes -> pastexam[-mobile]-dark.svg; light themes and fallback -> pastexam[-mobile]-light.svg. -->
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-dark.svg?v=2"
-    />
-    <source
-      media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-light.svg?v=2"
-    />
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="./assets/projects/pastexam-dark.svg?v=2"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="./assets/projects/pastexam-light.svg?v=2"
-    />
-    <img
-      src="./assets/projects/pastexam-light.svg?v=2"
-      width="100%"
-      alt="PhysArchive system card showing course search, PDF preview, submission and review workflows, and the verified service architecture"
-    />
-  </picture>
+  <img
+    src="./assets/projects/pastexam-light.svg?v=3#gh-light-mode-only"
+    width="100%"
+    alt="PhysArchive system card showing course search, PDF preview, submission and review workflows, and the verified service architecture"
+  />
+  <img
+    src="./assets/projects/pastexam-dark.svg?v=3#gh-dark-mode-only"
+    width="100%"
+    alt="PhysArchive system card showing course search, PDF preview, submission and review workflows, and the verified service architecture"
+  />
 </a>
 
 ### **PHYSARCHIVE / NTHU PHYSICS PAST EXAM PLATFORM**
@@ -116,30 +88,16 @@ QUALITY        Vitest / Playwright / pytest / Ruff
 ## **06 / CONTACT**
 
 <a href="https://github.com/NTHU-Physics-SA-IT">
-  <!-- GitHub theme mapping: dark themes -> contact[-mobile]-dark.svg; light themes and fallback -> contact[-mobile]-light.svg. -->
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/contact-mobile-dark.svg?v=3"
-    />
-    <source
-      media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/contact-mobile-light.svg?v=3"
-    />
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="./assets/contact-dark.svg?v=3"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="./assets/contact-light.svg?v=3"
-    />
-    <img
-      src="./assets/contact-light.svg?v=3"
-      width="100%"
-      alt="Contact console for NTHU Physics Student Association IT Team"
-    />
-  </picture>
+  <img
+    src="./assets/contact-light.svg?v=4#gh-light-mode-only"
+    width="100%"
+    alt="Contact console for NTHU Physics Student Association IT Team"
+  />
+  <img
+    src="./assets/contact-dark.svg?v=4#gh-dark-mode-only"
+    width="100%"
+    alt="Contact console for NTHU Physics Student Association IT Team"
+  />
 </a>
 
 **[GitHub Organization](https://github.com/NTHU-Physics-SA-IT)** · **[Physics Archive](https://physarchive.com/)**
