@@ -20,12 +20,12 @@ ASSET_DIR = PROFILE_DIR / "assets"
 EXPECTED_VIEWBOXES = {
     "assets/header-dark.svg": "0 0 1200 360",
     "assets/header-light.svg": "0 0 1200 360",
-    "assets/header-mobile-dark.svg": "0 0 720 620",
-    "assets/header-mobile-light.svg": "0 0 720 620",
+    "assets/header-mobile-dark.svg": "0 0 720 520",
+    "assets/header-mobile-light.svg": "0 0 720 520",
     "assets/contact-dark.svg": "0 0 1200 190",
     "assets/contact-light.svg": "0 0 1200 190",
-    "assets/contact-mobile-dark.svg": "0 0 720 360",
-    "assets/contact-mobile-light.svg": "0 0 720 360",
+    "assets/contact-mobile-dark.svg": "0 0 720 250",
+    "assets/contact-mobile-light.svg": "0 0 720 250",
     "assets/projects/pastexam-dark.svg": "0 0 1200 320",
     "assets/projects/pastexam-light.svg": "0 0 1200 320",
     "assets/projects/pastexam-mobile-dark.svg": "0 0 720 580",
@@ -34,8 +34,8 @@ EXPECTED_VIEWBOXES = {
 EXPECTED_ASSETS = set(EXPECTED_VIEWBOXES)
 
 EXPECTED_CACHE_VERSIONS = {
-    "header": "3",
-    "contact": "3",
+    "header": "4",
+    "contact": "4",
     "pastexam": "2",
 }
 
@@ -69,7 +69,7 @@ ACTIVE_URI_PATTERN = re.compile(
     re.IGNORECASE,
 )
 LOW_WEIGHT_PATTERN = re.compile(
-    r"font-weight\s*(?::|=)\s*[\"']?([1-6]00)\b", re.IGNORECASE
+    r"font-weight\s*(?::|=)\s*[\"']?([1-3]00)\b", re.IGNORECASE
 )
 URL_FUNCTION_PATTERN = re.compile(r"url\(([^)]+)\)", re.IGNORECASE)
 HEX_COLOR_PATTERN = re.compile(r"#[0-9A-Fa-f]{6}\b")
@@ -453,14 +453,18 @@ def validate_header_animation(
         )
 
     tolerance = 1e-9
+    typing_clip_paths: set[str] = set()
     for index, animation in enumerate(width_animations, start=1):
         label = f"{relative}: width animation {index}"
         if animation.get("calcMode") != "discrete":
             errors.append(f"{label} must use calcMode=discrete")
-        if _duration_seconds(animation.get("dur", "")) != 16.0:
-            errors.append(f"{label} must use dur=16s")
-        if animation.get("repeatCount") != "indefinite":
-            errors.append(f"{label} must repeat indefinitely")
+        duration = _duration_seconds(animation.get("dur", ""))
+        if duration is None or not 0.7 <= duration <= 1.5:
+            errors.append(f"{label} duration must be between 0.7s and 1.5s")
+        if animation.get("repeatCount") != "1":
+            errors.append(f"{label} must play exactly once")
+        if animation.get("fill") != "freeze":
+            errors.append(f"{label} must freeze at full width")
 
         values = _parse_number_list(animation.get("values", ""))
         key_times = _parse_number_list(animation.get("keyTimes", ""))
@@ -485,41 +489,31 @@ def validate_header_animation(
             )
         if (
             abs(values[0]) > tolerance
-            or abs(values[-1]) > tolerance
             or any(value < 0 for value in values)
         ):
             errors.append(
-                f"{label} widths must start/end at zero and stay non-negative"
+                f"{label} widths must start at zero and stay non-negative"
             )
 
         maximum = max(values)
         if maximum <= 0:
             errors.append(f"{label} never reveals any text")
             continue
+        if abs(values[-1] - maximum) > tolerance:
+            errors.append(f"{label} must finish at full width")
         if any(
             values[position] > values[position + 1]
-            for position in range(len(values) - 2)
+            for position in range(len(values) - 1)
         ):
             errors.append(
-                f"{label} widths must increase monotonically before reset"
+                f"{label} widths must increase monotonically"
             )
 
-        completion_index = values.index(maximum)
-        if key_times[completion_index] > 0.351 + tolerance:
-            errors.append(
-                f"{label} completes after the 0.351 cycle boundary"
-            )
-        reset_indices = [
-            position
-            for position in range(completion_index + 1, len(values))
-            if values[position] < maximum
-        ]
-        if not reset_indices:
-            errors.append(f"{label} has no reset step")
-        elif key_times[reset_indices[0]] < 0.968 - tolerance:
-            errors.append(
-                f"{label} resets before the 0.968 cycle boundary"
-            )
+        begin = _duration_seconds(animation.get("begin", ""))
+        if begin is None or duration is None:
+            errors.append(f"{label} must use a numeric begin time")
+        elif begin + duration > 6.6 + tolerance:
+            errors.append(f"{label} must complete by 6.6s")
 
         animated_rect = parent_map.get(animation)
         if (
@@ -536,27 +530,39 @@ def validate_header_animation(
         while ancestor is not None:
             if _local_name(ancestor.tag) == "clipPath":
                 inside_clip_path = True
+                typing_clip_paths.add(ancestor.get("id", ""))
                 break
             ancestor = parent_map.get(ancestor)
         if not inside_clip_path:
             errors.append(f"{label} must be contained by a clipPath")
+
+    if len(typing_clip_paths) != 1:
+        errors.append(
+            f"{relative}: typing must use one shared clipPath, "
+            f"found {len(typing_clip_paths)}"
+        )
 
     cursor_animations = [
         animation
         for animation in animations
         if _local_name(animation.tag) == "animate"
         and animation.get("attributeName") == "opacity"
-        and _duration_seconds(animation.get("dur", "")) == 0.8
+        and _duration_seconds(animation.get("dur", "")) == 1.2
     ]
     if len(cursor_animations) != 1:
         errors.append(
-            f"{relative}: expected one 0.8s cursor animation, "
+            f"{relative}: expected one 1.2s cursor animation, "
             f"found {len(cursor_animations)}"
         )
     else:
         cursor_animation = cursor_animations[0]
         if cursor_animation.get("repeatCount") != "indefinite":
             errors.append(f"{relative}: cursor must repeat indefinitely")
+        cursor_begin = _duration_seconds(cursor_animation.get("begin", ""))
+        if cursor_begin is None or cursor_begin < 6.5:
+            errors.append(
+                f"{relative}: cursor must begin after typing completes"
+            )
         cursor_values = _parse_number_list(
             cursor_animation.get("values", "")
         )
@@ -653,6 +659,14 @@ def validate_header_animation(
             errors.append(
                 f"{relative}: reduced motion must hide only motion layers"
             )
+        if not re.search(
+            r"\.signal-motion\s*\{[^}]*display\s*:\s*none\s*!important",
+            reduced_body,
+            re.IGNORECASE | re.DOTALL,
+        ):
+            errors.append(
+                f"{relative}: reduced motion must hide signal motion"
+            )
         if ".static-fallback" in reduced_body:
             errors.append(
                 f"{relative}: reduced motion must not hide static fallback"
@@ -670,9 +684,10 @@ def validate_header_animation(
                 _local_name(element.tag) == "rect"
                 and element.get("opacity") == "0"
                 and any(
-                    _local_name(child.tag) == "animate"
+                    _local_name(child.tag) == "set"
                     and child.get("attributeName") == "opacity"
-                    and _duration_seconds(child.get("dur", "")) == 16.0
+                    and child.get("to") == "1"
+                    and child.get("fill") == "freeze"
                     for child in element
                 )
             ):
@@ -681,6 +696,37 @@ def validate_header_animation(
         errors.append(
             f"{relative}: motion cover must default to opacity=0"
         )
+
+    signal_animations = [
+        animation
+        for animation in animations
+        if _local_name(animation.tag) == "animateMotion"
+    ]
+    if len(signal_animations) != 1:
+        errors.append(
+            f"{relative}: expected one signal animateMotion, "
+            f"found {len(signal_animations)}"
+        )
+    else:
+        signal_animation = signal_animations[0]
+        signal_duration = _duration_seconds(signal_animation.get("dur", ""))
+        if signal_duration is None or not 7 <= signal_duration <= 10:
+            errors.append(
+                f"{relative}: signal animation must last 7–10 seconds"
+            )
+        if signal_animation.get("repeatCount") != "indefinite":
+            errors.append(
+                f"{relative}: signal animation must repeat indefinitely"
+            )
+        ancestor = parent_map.get(signal_animation)
+        inside_signal_motion = False
+        while ancestor is not None:
+            inside_signal_motion |= _has_class(ancestor, "signal-motion")
+            ancestor = parent_map.get(ancestor)
+        if not inside_signal_motion:
+            errors.append(
+                f"{relative}: signal animation must be in signal-motion"
+            )
 
 
 def validate_theme_parity(errors: list[str]) -> None:
@@ -770,7 +816,7 @@ def validate_svg(path: Path, errors: list[str]) -> None:
 
     for match in LOW_WEIGHT_PATTERN.finditer(raw):
         errors.append(
-            f"{relative}: font-weight below 700 ({match.group(1)})"
+            f"{relative}: font-weight below 400 ({match.group(1)})"
         )
 
     if LOCAL_PATH_PATTERN.search(raw):
