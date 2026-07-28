@@ -32,7 +32,7 @@
   <text x="694" y="38" text-anchor="end" class="label green">STATUS: ACTIVE DEVELOPMENT</text>
   <text x="26" y="53" class="meta muted">PUBLIC STUDENT SYSTEM</text>
 
-  <rect class="raised" x="26" y="72" width="668" height="122" rx="3"/>
+  <rect x="26" y="72" width="668" height="122" rx="3" fill="none" stroke="#1B3A4B" stroke-width="1"/>
   <rect x="30" y="86" width="4" height="50" class="green"/>
   <text x="46" y="108" class="title primary">PHYSARCHIVE</text>
   <text x="46" y="130" class="subtitle cyan">NTHU PHYSICS PAST EXAM PLATFORM</text>
