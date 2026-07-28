@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
   <title id="title">NTHU Physics Student Association IT Team</title>
-  <desc id="desc">Dark organization header with the team identity, a one-time terminal boot sequence, and a restrained system signal trace.</desc>
+  <desc id="desc">Dark organization header with the team identity, a one-time terminal boot sequence, and an aggregate 24-hour Umami traffic snapshot.</desc>
   <defs>
     <clipPath id="terminal-reveal">
       <rect x="52" y="167" width="0" height="22">
@@ -44,6 +44,7 @@
       .signal-heading { font-size: 13px; font-weight: 700; letter-spacing: .45px; }
       .signal-copy { font-size: 11px; font-weight: 400; letter-spacing: .2px; }
       .signal-label { font-size: 11px; font-weight: 500; letter-spacing: .25px; }
+      .signal-telemetry { font-size: 11px; font-weight: 500; letter-spacing: .1px; }
       .rail { font-size: 12px; font-weight: 500; letter-spacing: .65px; }
       @media (prefers-reduced-motion: reduce) {
         .motion-layer { display: none !important; }
@@ -94,23 +95,23 @@
     </rect>
   </g>
 
-  <g aria-label="System signal telemetry">
+  <!-- UMAMI GENERATED SIGNAL START -->
+  <g aria-label="Umami traffic snapshot" data-generated-at="pending" data-pageviews="pending" data-visitors="pending">
     <text x="790" y="98" class="signal-heading cyan">SYSTEM SIGNAL</text>
-    <text x="790" y="119" class="signal-copy muted">STUDENT INFRASTRUCTURE / LIVE TRACE</text>
+    <text x="790" y="119" class="signal-copy muted">24H TRAFFIC / HOURLY PAGEVIEWS</text>
     <path d="M790 220H1160" class="border" stroke-width="1" opacity=".55"/>
-    <path d="M790 220C812 220 826 220 840 220L850 220L858 180L866 252L874 198L882 230C902 218 922 210 944 220C966 230 986 236 1008 220C1030 204 1052 210 1074 220C1096 230 1118 226 1140 220H1160"
+    <path data-umami-signal="desktop" d="M790 220L806.1 220L822.2 220L838.3 220L854.3 220L870.4 220L886.5 220L902.6 220L918.7 220L934.8 220L950.9 220L967 220L983 220L999.1 220L1015.2 220L1031.3 220L1047.4 220L1063.5 220L1079.6 220L1095.7 220L1111.7 220L1127.8 220L1143.9 220L1160 220"
           fill="none" stroke="#55D8F5" stroke-width="1.7"/>
-    <circle cx="790" cy="220" r="3" class="green"/>
-    <path d="M820 250V258M970 250V258M1110 250V258" class="border" stroke-width="1"/>
-    <text x="820" y="278" text-anchor="middle" class="signal-label muted">ARCHIVE</text>
-    <text x="970" y="278" text-anchor="middle" class="signal-label muted">API</text>
-    <text x="1110" y="278" text-anchor="middle" class="signal-label muted">STORAGE</text>
-    <g class="signal-motion">
+    <g class="signal-motion" aria-hidden="true">
       <circle r="3.5" class="cyan">
-        <animateMotion dur="9s" repeatCount="indefinite" path="M790 220C812 220 826 220 840 220L850 220L858 180L866 252L874 198L882 230C902 218 922 210 944 220C966 230 986 236 1008 220C1030 204 1052 210 1074 220C1096 230 1118 226 1140 220H1160"/>
+        <animateMotion dur="10s" repeatCount="indefinite" path="M790 220L806.1 220L822.2 220L838.3 220L854.3 220L870.4 220L886.5 220L902.6 220L918.7 220L934.8 220L950.9 220L967 220L983 220L999.1 220L1015.2 220L1031.3 220L1047.4 220L1063.5 220L1079.6 220L1095.7 220L1111.7 220L1127.8 220L1143.9 220L1160 220"/>
       </circle>
     </g>
+    <text x="790" y="250" class="signal-telemetry primary">VIEWS      --</text>
+    <text x="790" y="271" class="signal-telemetry primary">VISITORS   --</text>
+    <text x="790" y="292" class="signal-telemetry muted">UPDATED    PENDING API SYNC</text>
   </g>
+  <!-- UMAMI GENERATED SIGNAL END -->
 
   <path d="M28 328H1172" class="border" stroke-width="1"/>
   <text x="600" y="345" text-anchor="middle" class="rail muted">SYSTEMS / ARCHIVES / AUTOMATION / OPEN COLLABORATION</text>

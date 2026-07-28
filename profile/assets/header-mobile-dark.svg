@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
   <title id="title">NTHU Physics Student Association IT Team mobile header</title>
-  <desc id="desc">Dark mobile organization header with the team identity, a one-time terminal boot sequence, and a compact system signal strip.</desc>
+  <desc id="desc">Dark mobile organization header with the team identity, a one-time terminal boot sequence, and an aggregate 24-hour Umami traffic snapshot.</desc>
   <defs>
     <clipPath id="terminal-reveal">
       <rect x="48" y="181" width="0" height="28">
@@ -43,6 +43,7 @@
       .terminal-strong { font-weight: 600; }
       .signal-heading { font-size: 15px; font-weight: 700; letter-spacing: .3px; }
       .signal-label { font-size: 13px; font-weight: 500; letter-spacing: .2px; }
+      .signal-telemetry { font-size: 13px; font-weight: 500; letter-spacing: .05px; }
       @media (prefers-reduced-motion: reduce) {
         .motion-layer { display: none !important; }
         .signal-motion { display: none !important; }
@@ -89,19 +90,20 @@
     </rect>
   </g>
 
-  <g aria-label="System signal strip">
-    <text x="42" y="418" class="signal-heading cyan">SYSTEM SIGNAL</text>
-    <path d="M42 456H678" class="border" stroke-width="1" opacity=".55"/>
-    <path d="M42 456H112L122 456L132 420L142 488L152 438L162 465C194 446 226 447 258 456C290 465 322 466 354 456C386 446 418 449 450 456C482 463 514 462 546 456C578 450 610 453 642 456H678"
+  <!-- UMAMI GENERATED SIGNAL START -->
+  <g aria-label="Umami traffic snapshot" data-generated-at="pending" data-pageviews="pending" data-visitors="pending">
+    <text x="42" y="414" class="signal-heading cyan">SYSTEM SIGNAL / 24H HOURLY PAGEVIEWS</text>
+    <path d="M42 450H678" class="border" stroke-width="1" opacity=".55"/>
+    <path data-umami-signal="mobile" d="M42 450L69.7 450L97.3 450L125 450L152.6 450L180.3 450L207.9 450L235.6 450L263.2 450L290.9 450L318.5 450L346.2 450L373.8 450L401.5 450L429.1 450L456.8 450L484.4 450L512.1 450L539.7 450L567.4 450L595 450L622.7 450L650.3 450L678 450"
           fill="none" stroke="#55D8F5" stroke-width="1.8"/>
-    <circle cx="42" cy="456" r="3" class="green"/>
-    <text x="70" y="492" text-anchor="middle" class="signal-label muted">ARCHIVE</text>
-    <text x="360" y="492" text-anchor="middle" class="signal-label muted">API</text>
-    <text x="640" y="492" text-anchor="middle" class="signal-label muted">STORAGE</text>
-    <g class="signal-motion">
+    <g class="signal-motion" aria-hidden="true">
       <circle r="3.5" class="cyan">
-        <animateMotion dur="9s" repeatCount="indefinite" path="M42 456H112L122 456L132 420L142 488L152 438L162 465C194 446 226 447 258 456C290 465 322 466 354 456C386 446 418 449 450 456C482 463 514 462 546 456C578 450 610 453 642 456H678"/>
+        <animateMotion dur="10s" repeatCount="indefinite" path="M42 450L69.7 450L97.3 450L125 450L152.6 450L180.3 450L207.9 450L235.6 450L263.2 450L290.9 450L318.5 450L346.2 450L373.8 450L401.5 450L429.1 450L456.8 450L484.4 450L512.1 450L539.7 450L567.4 450L595 450L622.7 450L650.3 450L678 450"/>
       </circle>
     </g>
+    <text x="42" y="477" class="signal-telemetry primary">VIEWS --</text>
+    <text x="288" y="477" class="signal-telemetry primary">VISITORS --</text>
+    <text x="42" y="501" class="signal-telemetry muted">UPDATED PENDING API SYNC</text>
   </g>
+  <!-- UMAMI GENERATED SIGNAL END -->
 </svg>

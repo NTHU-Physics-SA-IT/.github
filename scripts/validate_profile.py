@@ -710,9 +710,9 @@ def validate_header_animation(
     else:
         signal_animation = signal_animations[0]
         signal_duration = _duration_seconds(signal_animation.get("dur", ""))
-        if signal_duration is None or not 7 <= signal_duration <= 10:
+        if signal_duration is None or not 9 <= signal_duration <= 12:
             errors.append(
-                f"{relative}: signal animation must last 7–10 seconds"
+                f"{relative}: signal animation must last 9-12 seconds"
             )
         if signal_animation.get("repeatCount") != "indefinite":
             errors.append(
@@ -726,6 +726,112 @@ def validate_header_animation(
         if not inside_signal_motion:
             errors.append(
                 f"{relative}: signal animation must be in signal-motion"
+            )
+
+    if raw.count("<!-- UMAMI GENERATED SIGNAL START -->") != 1:
+        errors.append(
+            f"{relative}: missing unique Umami signal start marker"
+        )
+    if raw.count("<!-- UMAMI GENERATED SIGNAL END -->") != 1:
+        errors.append(
+            f"{relative}: missing unique Umami signal end marker"
+        )
+
+    signal_paths = [
+        element
+        for element in root.iter()
+        if element.get("data-umami-signal") is not None
+    ]
+    if len(signal_paths) != 1:
+        errors.append(
+            f"{relative}: expected one generated Umami signal path, "
+            f"found {len(signal_paths)}"
+        )
+    else:
+        signal_path = signal_paths[0]
+        expected_layout = (
+            "mobile" if "header-mobile-" in relative else "desktop"
+        )
+        if signal_path.get("data-umami-signal") != expected_layout:
+            errors.append(
+                f"{relative}: generated signal layout marker is incorrect"
+            )
+        path_data = signal_path.get("d", "")
+        point_matches = re.findall(
+            r"[ML](-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)",
+            path_data,
+        )
+        if len(point_matches) != 24:
+            errors.append(
+                f"{relative}: generated signal must contain 24 points"
+            )
+        else:
+            coordinates = [
+                (float(x), float(y)) for x, y in point_matches
+            ]
+            if any(
+                coordinates[index][0] >= coordinates[index + 1][0]
+                for index in range(len(coordinates) - 1)
+            ):
+                errors.append(
+                    f"{relative}: generated signal x coordinates must increase"
+                )
+            y_min, y_max = (
+                (420, 450) if expected_layout == "mobile" else (150, 220)
+            )
+            if any(not y_min <= y <= y_max for _, y in coordinates):
+                errors.append(
+                    f"{relative}: generated signal exceeds plot padding"
+                )
+
+        if len(signal_animations) == 1 and (
+            signal_animations[0].get("path") != path_data
+        ):
+            errors.append(
+                f"{relative}: scanner dot must follow the data path exactly"
+            )
+
+        group = parent_map.get(signal_path)
+        if (
+            group is None
+            or group.get("aria-label") != "Umami traffic snapshot"
+        ):
+            errors.append(
+                f"{relative}: generated signal needs an aggregate snapshot label"
+            )
+        elif group.get("data-generated-at") != "pending":
+            hourly = group.get("data-hourly", "").split(",")
+            if len(hourly) != 24 or any(
+                not value.isdigit() for value in hourly
+            ):
+                errors.append(
+                    f"{relative}: generated snapshot metadata is invalid"
+                )
+            for attribute in ("data-pageviews", "data-visitors"):
+                if not group.get(attribute, "").isdigit():
+                    errors.append(
+                        f"{relative}: {attribute} must be an integer"
+                    )
+
+        telemetry = " ".join(
+            "".join(element.itertext())
+            for element in root.iter()
+            if _local_name(element.tag) == "text"
+        )
+        for label in ("SYSTEM SIGNAL", "VIEWS", "VISITORS", "UPDATED"):
+            if label not in telemetry:
+                errors.append(
+                    f"{relative}: generated telemetry is missing {label}"
+                )
+        if expected_layout == "desktop" and (
+            "24H TRAFFIC / HOURLY PAGEVIEWS" not in telemetry
+        ):
+            errors.append(
+                f"{relative}: desktop signal is missing its data definition"
+            )
+        if re.search(r"\b(?:LIVE|REALTIME)\b", telemetry):
+            errors.append(
+                f"{relative}: snapshot telemetry must not claim realtime data"
             )
 
 
