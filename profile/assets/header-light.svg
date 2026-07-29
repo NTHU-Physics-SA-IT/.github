@@ -67,7 +67,7 @@
   <text x="40" y="146" class="tagline cyan">BUILDING RELIABLE DIGITAL INFRASTRUCTURE FOR PHYSICS STUDENTS</text>
 
   <rect x="32" y="158" width="700" height="162" rx="4" class="raised border" stroke-width="1.2"/>
-  <rect x="43" y="168" width="3" height="136" class="green" opacity=".65"/>
+  <rect x="43.5" y="168" width="2" height="136" class="green" opacity=".65"/>
 
   <g class="static-fallback terminal">
     <text x="52" y="184" class="green terminal-strong">&gt; boot --organization NTHU-Physics-SA-IT</text>
