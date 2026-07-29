@@ -1,82 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="contact-mobile-title contact-mobile-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="contact-mobile-title contact-mobile-desc">
   <title id="contact-mobile-title">Contact the NTHU Physics Student Association IT Team</title>
-  <desc id="contact-mobile-desc">Mobile light engineering contact console with public GitHub and Physics Archive endpoints connected through a logical routing schematic.</desc>
+  <desc id="contact-mobile-desc">Light mobile command-line contact card with the public GitHub organization, Physics Archive website, and contribution status.</desc>
   <defs>
-    <pattern id="contact-mobile-grid" width="16" height="16" patternUnits="userSpaceOnUse">
-      <path d="M16 0H0V16" fill="none" stroke="#B8C9D1" stroke-width=".8" opacity=".55"/>
-    </pattern>
     <style>
       text {
         font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
-        font-weight: 700;
+        font-weight: 500;
       }
-      .command { font-weight: 800; }
-      .label { font-weight: 800; letter-spacing: .45px; }
+      .meta { font-size: 14px; font-weight: 500; letter-spacing: .25px; }
+      .command { font-size: 20px; font-weight: 700; }
+      .entry { font-size: 19px; font-weight: 500; }
+      .label { font-weight: 600; }
+      .status { font-weight: 600; }
     </style>
   </defs>
 
-  <rect x="10" y="10" width="700" height="340" rx="6" fill="#FFFFFF" stroke="#B8C9D1" stroke-width="1.5"/>
-  <path d="M10 55H710" stroke="#B8C9D1" stroke-width="1.5"/>
+  <rect x="10" y="10" width="700" height="230" rx="6" fill="#FFFFFF" stroke="#B8C9D1" stroke-width="1.5"/>
+  <path d="M10 55H710" stroke="#B8C9D1" stroke-width="1"/>
+  <rect x="22" y="27" width="8" height="8" fill="#087A4B"/>
+  <text x="42" y="40" class="meta" fill="#536875">CONTACT CONSOLE</text>
+  <text x="696" y="40" text-anchor="end" class="meta" fill="#536875">PUBLIC / ONLINE</text>
 
-  <rect x="22" y="27" width="9" height="9" rx="1" fill="#087A4B"/>
-  <text x="42" y="41" class="label" font-size="16" fill="#536875">CONTACT CONSOLE / PUBLIC ENDPOINTS</text>
-  <text x="696" y="41" text-anchor="end" class="label" font-size="14" fill="#536875">DWG C-M01 / READY</text>
-
-  <text x="28" y="89" class="command" font-size="22" fill="#0A1720">&gt; connect --organization NTHU-Physics-SA-IT</text>
-  <text x="28" y="129" font-size="21" fill="#0A1720">
-    <tspan fill="#006D85">GITHUB</tspan>
-    <tspan fill="#536875"> : </tspan>
-    <tspan>github.com/NTHU-Physics-SA-IT</tspan>
-  </text>
-  <text x="28" y="168" font-size="21" fill="#0A1720">
-    <tspan fill="#006D85">SYSTEM</tspan>
-    <tspan fill="#536875"> : </tspan>
-    <tspan>physarchive.com</tspan>
-  </text>
-  <text x="28" y="207" font-size="21" fill="#087A4B">
-    <tspan>STATUS</tspan>
-    <tspan fill="#536875"> : </tspan>
-    <tspan>OPEN TO CONTRIBUTIONS_</tspan>
-  </text>
-
-  <g aria-label="Public contact routing schematic">
-    <rect x="28" y="238" width="664" height="105" rx="4" fill="#EAF0F2" stroke="#B8C9D1" stroke-width="1.5"/>
-    <rect x="28" y="238" width="664" height="105" rx="4" fill="url(#contact-mobile-grid)"/>
-    <path d="M28 263H692" stroke="#B8C9D1" stroke-width="1"/>
-    <text x="40" y="256" class="label" font-size="15" fill="#0A1720">PUBLIC CONTACT ROUTING / LOGICAL</text>
-    <text x="680" y="256" text-anchor="end" font-size="13" fill="#536875">PORT / NODE / HTTPS</text>
-
-    <path d="M153 304H194M194 285V325M194 285H237M194 325H237M390 285H522V304H555M390 325H522V304"
-          fill="none" stroke="#006D85" stroke-width="1.8"/>
-    <circle cx="194" cy="304" r="5" fill="#006D85"/>
-    <circle cx="522" cy="304" r="2" fill="#006D85"/>
-    <circle cx="522" cy="285" r="2" fill="#006D85"/>
-    <circle cx="522" cy="325" r="2" fill="#006D85"/>
-    <text x="181" y="279" class="label" font-size="13" fill="#536875">J01</text>
-    <text x="404" y="280" class="label" font-size="13" fill="#006D85">ISSUE / PR</text>
-    <text x="404" y="320" class="label" font-size="13" fill="#006D85">USE / FEEDBACK</text>
-
-    <rect x="44" y="287" width="105" height="34" rx="2" fill="#FFFFFF" stroke="#B8C9D1"/>
-    <rect x="37" y="301" width="7" height="7" fill="#006D85"/>
-    <rect x="146" y="301" width="7" height="7" fill="#006D85"/>
-    <text x="96.5" y="301" text-anchor="middle" class="label" font-size="14" fill="#0A1720">P01 PUBLIC</text>
-    <text x="96.5" y="316" text-anchor="middle" font-size="13" fill="#536875">HTTPS</text>
-
-    <rect x="240" y="268" width="146" height="34" rx="2" fill="#FFFFFF" stroke="#B8C9D1"/>
-    <rect x="237" y="282" width="7" height="7" fill="#006D85"/>
-    <rect x="383" y="282" width="7" height="7" fill="#006D85"/>
-    <text x="252" y="282" class="label" font-size="14" fill="#0A1720">E01 GITHUB</text>
-    <text x="252" y="297" font-size="13" fill="#536875">HTTPS</text>
-
-    <rect x="240" y="308" width="146" height="34" rx="2" fill="#FFFFFF" stroke="#B8C9D1"/>
-    <rect x="237" y="322" width="7" height="7" fill="#006D85"/>
-    <rect x="383" y="322" width="7" height="7" fill="#006D85"/>
-    <text x="252" y="322" class="label" font-size="14" fill="#8A6500">E02 ARCHIVE</text>
-    <text x="252" y="337" font-size="13" fill="#536875">HTTPS</text>
-
-    <rect x="558" y="287" width="120" height="34" rx="2" fill="#FFFFFF" stroke="#087A4B"/>
-    <rect x="555" y="301" width="7" height="7" fill="#006D85"/>
-    <rect x="675" y="301" width="7" height="7" fill="#087A4B"/>
-    <text x="618" y="310" text-anchor="middle" class="label" font-size="15" fill="#087A4B">C01 OPEN</text>
+  <g aria-label="Public contact information">
+    <text x="28" y="92" class="command" fill="#0A1720">&gt; connect --organization NTHU-Physics-SA-IT</text>
+    <text x="28" y="132" class="entry" fill="#0A1720">
+      <tspan class="label" fill="#006D85">GITHUB</tspan>
+      <tspan fill="#536875"> : </tspan>
+      <tspan>github.com/NTHU-Physics-SA-IT</tspan>
+    </text>
+    <text x="28" y="167" class="entry" fill="#0A1720">
+      <tspan class="label" fill="#006D85">SYSTEM</tspan>
+      <tspan fill="#536875"> : </tspan>
+      <tspan>physarchive.com</tspan>
+    </text>
+    <text x="28" y="202" class="entry status" fill="#087A4B">
+      <tspan>STATUS</tspan>
+      <tspan fill="#536875"> : </tspan>
+      <tspan>OPEN TO CONTRIBUTIONS_</tspan>
+    </text>
+    <rect x="682" y="193" width="7" height="7" fill="#087A4B"/>
   </g>
 </svg>

@@ -1,50 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">NTHU Physics Student Association IT Team system console</title>
-  <desc id="desc">Light organization header with a terminal boot sequence and a service topology linking the physics archive, API, database, object storage, and edge delivery.</desc>
+  <title id="title">NTHU Physics Student Association IT Team</title>
+  <desc id="desc">Light organization header with the team identity, a one-time terminal boot sequence, and an aggregate 24-hour Umami traffic snapshot.</desc>
   <defs>
-    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-      <path d="M28 0H0V28" fill="none" stroke="#B8C9D1" stroke-width="1" opacity=".26"/>
-    </pattern>
-    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0L8 4L0 8Z" fill="#006D85"/>
-    </marker>
-    <marker id="arrow-data" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0L8 4L0 8Z" fill="#8A6500"/>
-    </marker>
-    <clipPath id="type-command">
+    <clipPath id="terminal-reveal">
       <rect x="52" y="167" width="0" height="22">
-        <animate attributeName="width" values="0;0;32;64;96;128;160;192;224;256;288;320;344;344;0" keyTimes="0;.028;.035;.042;.049;.056;.063;.070;.077;.084;.091;.098;.105;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="0;0;48;96;144;192;240;288;336;344" keyTimes="0;.08;.18;.28;.38;.48;.58;.68;.78;1" calcMode="discrete" dur="1.4s" begin=".2s" repeatCount="1" fill="freeze"/>
       </rect>
-    </clipPath>
-    <clipPath id="type-identity">
       <rect x="52" y="191" width="0" height="22">
-        <animate attributeName="width" values="0;0;38;76;114;152;190;228;266;304;342;380;418;418;0" keyTimes="0;.108;.113;.118;.123;.128;.133;.138;.143;.148;.153;.158;.163;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="0;0;60;120;180;240;300;360;418" keyTimes="0;.08;.2;.32;.44;.56;.68;.82;1" calcMode="discrete" dur="1s" begin="1.7s" repeatCount="1" fill="freeze"/>
       </rect>
-    </clipPath>
-    <clipPath id="type-unit">
       <rect x="52" y="215" width="0" height="22">
-        <animate attributeName="width" values="0;0;38;76;114;152;190;228;266;304;342;380;418;418;0" keyTimes="0;.166;.171;.176;.181;.186;.191;.196;.201;.206;.211;.216;.221;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="0;0;60;120;180;240;300;360;418" keyTimes="0;.08;.2;.32;.44;.56;.68;.82;1" calcMode="discrete" dur="1s" begin="2.8s" repeatCount="1" fill="freeze"/>
       </rect>
-    </clipPath>
-    <clipPath id="type-platform">
       <rect x="52" y="239" width="0" height="22">
-        <animate attributeName="width" values="0;0;30;60;90;120;150;180;210;240;270;300;330;330;0" keyTimes="0;.224;.228;.232;.236;.240;.244;.248;.252;.256;.260;.264;.268;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="0;0;55;110;165;220;275;330" keyTimes="0;.1;.24;.38;.52;.66;.82;1" calcMode="discrete" dur=".8s" begin="3.9s" repeatCount="1" fill="freeze"/>
       </rect>
-    </clipPath>
-    <clipPath id="type-mission">
       <rect x="52" y="263" width="0" height="22">
-        <animate attributeName="width" values="0;0;34;68;102;136;170;204;238;272;306;340;340;0" keyTimes="0;.270;.275;.280;.285;.290;.295;.300;.305;.310;.315;.320;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="0;0;56;112;168;224;280;340" keyTimes="0;.1;.24;.38;.52;.66;.82;1" calcMode="discrete" dur=".8s" begin="4.8s" repeatCount="1" fill="freeze"/>
       </rect>
-    </clipPath>
-    <clipPath id="type-status">
       <rect x="52" y="287" width="0" height="22">
-        <animate attributeName="width" values="0;0;27;54;81;108;135;162;189;216;243;270;270;0" keyTimes="0;.318;.321;.324;.327;.330;.333;.336;.339;.342;.345;.351;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="0;0;45;90;135;180;225;270" keyTimes="0;.1;.24;.38;.52;.66;.82;1" calcMode="discrete" dur=".8s" begin="5.7s" repeatCount="1" fill="freeze"/>
       </rect>
     </clipPath>
     <style>
       text {
         font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
-        font-weight: 700;
+        font-weight: 500;
       }
       .panel { fill: #FFFFFF; }
       .raised { fill: #EAF0F2; }
@@ -54,24 +35,20 @@
       .cyan { fill: #006D85; }
       .amber { fill: #8A6500; }
       .border { stroke: #B8C9D1; }
-      .brand { font-size: 32px; font-weight: 900; letter-spacing: 1.6px; }
-      .brand-zh { font-size: 19px; font-weight: 900; letter-spacing: 1.8px; }
-      .tagline { font-size: 13px; font-weight: 800; letter-spacing: 1.1px; }
-      .meta { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; }
-      .terminal { font-size: 14px; font-weight: 700; }
-      .node-label { font-size: 14px; font-weight: 800; letter-spacing: 1px; }
-      .node-meta { font-size: 11.5px; font-weight: 700; letter-spacing: .7px; }
-      .node-id { font-size: 10.5px; font-weight: 800; letter-spacing: .8px; }
-      .bus-label { font-size: 10.5px; font-weight: 800; letter-spacing: .4px; }
-      .port-label { font-size: 10.5px; font-weight: 800; letter-spacing: .5px; }
-      .rail { font-size: 12px; font-weight: 800; letter-spacing: 1.7px; }
-      .request-bus { fill: none; stroke: #006D85; stroke-width: 1.6; marker-end: url(#arrow); }
-      .data-bus { fill: none; stroke: #8A6500; stroke-width: 1.6; marker-end: url(#arrow-data); }
-      .request-port { fill: #FFFFFF; stroke: #006D85; stroke-width: 1.5; }
-      .health-port { fill: #087A4B; }
-      .junction { fill: #8A6500; }
+      .brand { font-size: 32px; font-weight: 900; letter-spacing: .6px; }
+      .brand-zh { font-size: 19px; font-weight: 800; letter-spacing: .5px; }
+      .tagline { font-size: 13px; font-weight: 600; letter-spacing: .35px; }
+      .meta { font-size: 12px; font-weight: 500; letter-spacing: .35px; }
+      .terminal { font-size: 14px; font-weight: 500; }
+      .terminal-strong { font-weight: 600; }
+      .signal-heading { font-size: 13px; font-weight: 700; letter-spacing: .45px; }
+      .signal-copy { font-size: 11px; font-weight: 400; letter-spacing: .2px; }
+      .signal-label { font-size: 11px; font-weight: 500; letter-spacing: .25px; }
+      .signal-telemetry { font-size: 11px; font-weight: 500; letter-spacing: .1px; }
+      .rail { font-size: 12px; font-weight: 500; letter-spacing: .65px; }
       @media (prefers-reduced-motion: reduce) {
         .motion-layer { display: none !important; }
+        .signal-motion { display: none !important; }
       }
     </style>
   </defs>
@@ -80,134 +57,61 @@
 
   <g aria-hidden="true">
     <path d="M28 54H1172" class="border" stroke-width="1"/>
-    <path d="M750 66V326" class="border" stroke-width="1"/>
     <rect x="28" y="27" width="8" height="8" class="green"/>
-    <path d="M890 20V46M1048 20V46" class="border" stroke-width="1"/>
   </g>
-
   <text x="48" y="36" class="meta muted">ORG PROFILE / SYSTEM CONSOLE</text>
-  <text x="904" y="36" class="meta muted">DWG H-01 / REV 02</text>
-  <text x="1168" y="36" text-anchor="end" class="meta muted">STATE / PUBLIC</text>
+  <text x="1168" y="36" text-anchor="end" class="meta muted">PUBLIC / ONLINE</text>
 
   <text x="40" y="92" class="brand primary">NTHU PHYSICS SA // IT TEAM</text>
   <text x="40" y="121" class="brand-zh primary">清大物理系系學會資訊組</text>
   <text x="40" y="146" class="tagline cyan">BUILDING RELIABLE DIGITAL INFRASTRUCTURE FOR PHYSICS STUDENTS</text>
 
-  <rect x="32" y="158" width="700" height="162" rx="6" class="raised border" stroke-width="1.2"/>
-  <path d="M32 158H732" class="border" stroke-width="1"/>
+  <rect x="32" y="158" width="700" height="162" rx="4" class="raised border" stroke-width="1.2"/>
   <rect x="43" y="168" width="3" height="136" class="green" opacity=".65"/>
 
-  <!-- Full static transcript: visible when SMIL is unavailable and in reduced-motion mode. -->
   <g class="static-fallback terminal">
-    <text x="52" y="184" class="green">&gt; boot --organization NTHU-Physics-SA-IT</text>
+    <text x="52" y="184" class="green terminal-strong">&gt; boot --organization NTHU-Physics-SA-IT</text>
     <text x="52" y="208" class="primary">[ OK ] IDENTITY     : PHYSICS STUDENT ASSOCIATION</text>
     <text x="52" y="232" class="primary">[ OK ] UNIT         : INFORMATION TECHNOLOGY TEAM</text>
     <text x="52" y="256" class="primary">[ OK ] PLATFORM     : STUDENT SYSTEMS</text>
     <text x="52" y="280" class="amber">[ RUN ] MISSION     : BUILD RELIABLE TOOLS</text>
-    <text x="52" y="304" class="green">[READY] STATUS      : ONLINE_</text>
+    <text x="52" y="304" class="green terminal-strong">[READY] STATUS      : ONLINE_</text>
   </g>
 
-  <!-- A transparent-by-default cover preserves the static fallback when animation is unsupported. -->
   <g class="motion-layer">
     <rect x="48" y="164" width="672" height="146" class="raised" opacity="0">
-      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.002;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
+      <set attributeName="opacity" to="1" begin=".05s" fill="freeze"/>
     </rect>
-    <g class="terminal">
-      <g clip-path="url(#type-command)">
-        <text x="52" y="184" class="green">&gt; boot --organization NTHU-Physics-SA-IT</text>
-      </g>
-      <g clip-path="url(#type-identity)">
-        <text x="52" y="208" class="primary">[ OK ] IDENTITY     : PHYSICS STUDENT ASSOCIATION</text>
-      </g>
-      <g clip-path="url(#type-unit)">
-        <text x="52" y="232" class="primary">[ OK ] UNIT         : INFORMATION TECHNOLOGY TEAM</text>
-      </g>
-      <g clip-path="url(#type-platform)">
-        <text x="52" y="256" class="primary">[ OK ] PLATFORM     : STUDENT SYSTEMS</text>
-      </g>
-      <g clip-path="url(#type-mission)">
-        <text x="52" y="280" class="amber">[ RUN ] MISSION     : BUILD RELIABLE TOOLS</text>
-      </g>
-      <g clip-path="url(#type-status)">
-        <text x="52" y="304" class="green">[READY] STATUS      : ONLINE_</text>
-      </g>
+    <g class="terminal" clip-path="url(#terminal-reveal)">
+      <text x="52" y="184" class="green terminal-strong">&gt; boot --organization NTHU-Physics-SA-IT</text>
+      <text x="52" y="208" class="primary">[ OK ] IDENTITY     : PHYSICS STUDENT ASSOCIATION</text>
+      <text x="52" y="232" class="primary">[ OK ] UNIT         : INFORMATION TECHNOLOGY TEAM</text>
+      <text x="52" y="256" class="primary">[ OK ] PLATFORM     : STUDENT SYSTEMS</text>
+      <text x="52" y="280" class="amber">[ RUN ] MISSION     : BUILD RELIABLE TOOLS</text>
+      <text x="52" y="304" class="green terminal-strong">[READY] STATUS      : ONLINE</text>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.348;.351;.968;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
-      <rect x="298" y="290" width="8" height="17" class="green">
-        <animate attributeName="opacity" values="1;0;1" dur=".8s" repeatCount="indefinite"/>
-      </rect>
-    </g>
+    <rect x="288" y="291" width="8" height="15" class="green" opacity="0">
+      <animate attributeName="opacity" values="1;0;1" dur="1.2s" begin="6.6s" repeatCount="indefinite"/>
+    </rect>
   </g>
 
-  <g>
-    <text x="774" y="82" class="meta cyan">SERVICE TOPOLOGY / L1 BLOCK DIAGRAM</text>
-    <text x="774" y="102" class="node-meta muted">CYAN REQUEST / AMBER STORAGE / GREEN HEALTH</text>
-    <rect x="770" y="112" width="402" height="204" rx="2" class="raised border" stroke-width="1.2"/>
-    <rect x="770" y="112" width="402" height="204" rx="2" fill="url(#grid)" opacity=".34"/>
-
-    <rect x="781" y="158" width="7" height="7" class="request-port"/>
-    <text x="780" y="128" class="port-label cyan">P01 PUBLIC</text>
-    <path class="request-bus" d="M788 162H805"/>
-    <text x="781" y="203" class="bus-label muted">HTTPS</text>
-
-    <path class="request-bus" d="M883 162H911"/>
-    <text x="888" y="154" class="bus-label muted">APP</text>
-    <path class="request-bus" d="M1015 162H1043"/>
-    <text x="1017" y="154" class="bus-label muted">JSON</text>
-
-    <g transform="translate(805 136)">
-      <rect width="78" height="52" rx="2" class="panel border" stroke-width="1.2"/>
-      <text x="10" y="14" class="node-id cyan">N01</text>
-      <text x="10" y="31" class="node-label primary">EDGE</text>
-      <text x="10" y="45" class="node-meta muted">NGINX</text>
+  <!-- UMAMI GENERATED SIGNAL START -->
+  <g aria-label="Umami traffic snapshot" data-generated-at="pending" data-pageviews="pending" data-visitors="pending">
+    <text x="790" y="98" class="signal-heading cyan">SYSTEM SIGNAL</text>
+    <text x="790" y="119" class="signal-copy muted">24H TRAFFIC / HOURLY PAGEVIEWS</text>
+    <path d="M790 220H1160" class="border" stroke-width="1" opacity=".55"/>
+    <path data-umami-signal="desktop" d="M790 220L806.1 220L822.2 220L838.3 220L854.3 220L870.4 220L886.5 220L902.6 220L918.7 220L934.8 220L950.9 220L967 220L983 220L999.1 220L1015.2 220L1031.3 220L1047.4 220L1063.5 220L1079.6 220L1095.7 220L1111.7 220L1127.8 220L1143.9 220L1160 220"
+          fill="none" stroke="#006D85" stroke-width="1.7"/>
+    <g class="signal-motion" aria-hidden="true">
+      <circle r="3.5" class="cyan">
+        <animateMotion dur="10s" repeatCount="indefinite" path="M790 220L806.1 220L822.2 220L838.3 220L854.3 220L870.4 220L886.5 220L902.6 220L918.7 220L934.8 220L950.9 220L967 220L983 220L999.1 220L1015.2 220L1031.3 220L1047.4 220L1063.5 220L1079.6 220L1095.7 220L1111.7 220L1127.8 220L1143.9 220L1160 220"/>
+      </circle>
     </g>
-    <g transform="translate(911 136)">
-      <rect width="104" height="52" rx="2" class="panel border" stroke-width="1.2"/>
-      <text x="10" y="14" class="node-id cyan">N02</text>
-      <text x="10" y="31" class="node-label primary">ARCHIVE UI</text>
-      <text x="10" y="45" class="node-meta muted">VUE 3</text>
-    </g>
-    <g transform="translate(1043 136)">
-      <rect width="80" height="52" rx="2" class="panel border" stroke-width="1.2"/>
-      <text x="10" y="14" class="node-id cyan">N03</text>
-      <text x="10" y="31" class="node-label primary">API</text>
-      <text x="10" y="45" class="node-meta muted">FASTAPI</text>
-    </g>
-
-    <rect x="876" y="184" width="7" height="7" class="health-port"/>
-    <text x="826" y="204" class="port-label green">H01 OPEN</text>
-    <rect x="1116" y="184" width="7" height="7" class="health-port"/>
-    <text x="1090" y="204" class="port-label green">H02 OPEN</text>
-    <g class="motion-layer">
-      <rect x="876" y="184" width="7" height="7" class="health-port">
-        <animate attributeName="opacity" values=".3;1;.3" dur="5.6s" begin="-2s" repeatCount="indefinite"/>
-      </rect>
-      <rect x="1116" y="184" width="7" height="7" class="health-port">
-        <animate attributeName="opacity" values=".35;1;.35" dur="4.8s" repeatCount="indefinite"/>
-      </rect>
-    </g>
-
-    <path class="data-bus" d="M1083 188V214H925V244"/>
-    <path class="data-bus" d="M1083 214V244"/>
-    <rect x="1081" y="212" width="5" height="5" class="junction"/>
-    <text x="943" y="228" class="bus-label amber">SQL / META</text>
-    <text x="1089" y="232" class="bus-label amber">DOC / OBJECT</text>
-    <text x="1089" y="215" class="port-label amber">J01</text>
-
-    <g transform="translate(875 244)">
-      <rect width="100" height="52" rx="2" class="panel border" stroke-width="1.2"/>
-      <text x="10" y="14" class="node-id amber">N04</text>
-      <text x="10" y="31" class="node-label primary">DB</text>
-      <text x="10" y="45" class="node-meta muted">POSTGRESQL</text>
-    </g>
-    <g transform="translate(1015 244)">
-      <rect width="132" height="52" rx="2" class="panel border" stroke-width="1.2"/>
-      <text x="10" y="14" class="node-id amber">N05</text>
-      <text x="10" y="31" class="node-label primary">OBJECT</text>
-      <text x="10" y="45" class="node-meta muted">MINIO</text>
-    </g>
+    <text x="790" y="250" class="signal-telemetry primary">VIEWS      --</text>
+    <text x="790" y="271" class="signal-telemetry primary">VISITORS   --</text>
+    <text x="790" y="292" class="signal-telemetry muted">UPDATED    PENDING API SYNC</text>
   </g>
+  <!-- UMAMI GENERATED SIGNAL END -->
 
   <path d="M28 328H1172" class="border" stroke-width="1"/>
   <text x="600" y="345" text-anchor="middle" class="rail muted">SYSTEMS / ARCHIVES / AUTOMATION / OPEN COLLABORATION</text>
