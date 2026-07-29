@@ -28,7 +28,7 @@
         font-weight: 500;
       }
       .panel { fill: #FFFFFF; }
-      .raised { fill: #EAF0F2; }
+      .raised { fill: #F4F7F8; }
       .primary { fill: #0A1720; }
       .muted { fill: #536875; }
       .green { fill: #087A4B; }

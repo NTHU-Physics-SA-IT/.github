@@ -3,22 +3,22 @@
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/header-mobile-dark.svg?v=5"
+      srcset="./assets/header-mobile-dark.svg?v=6"
     />
     <source
       media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/header-mobile-light.svg?v=5"
+      srcset="./assets/header-mobile-light.svg?v=6"
     />
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./assets/header-dark.svg?v=5"
+      srcset="./assets/header-dark.svg?v=6"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./assets/header-light.svg?v=5"
+      srcset="./assets/header-light.svg?v=6"
     />
     <img
-      src="./assets/header-light.svg?v=5"
+      src="./assets/header-light.svg?v=6"
       width="100%"
       alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
     />
@@ -50,22 +50,22 @@ COLLABORATION   -> build systems together
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-dark.svg?v=3"
+      srcset="./assets/projects/pastexam-mobile-dark.svg?v=4"
     />
     <source
       media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-light.svg?v=3"
+      srcset="./assets/projects/pastexam-mobile-light.svg?v=4"
     />
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./assets/projects/pastexam-dark.svg?v=3"
+      srcset="./assets/projects/pastexam-dark.svg?v=4"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./assets/projects/pastexam-light.svg?v=3"
+      srcset="./assets/projects/pastexam-light.svg?v=4"
     />
     <img
-      src="./assets/projects/pastexam-light.svg?v=3"
+      src="./assets/projects/pastexam-light.svg?v=4"
       width="100%"
       alt="PhysArchive system card showing course search, PDF preview, submission, review and discussion workflows, and the verified technology stack"
     />
