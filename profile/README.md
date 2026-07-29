@@ -50,22 +50,22 @@ COLLABORATION   -> build systems together
   <picture>
     <source
       media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-dark.svg?v=4"
+      srcset="./assets/projects/pastexam-mobile-dark.svg?v=5"
     />
     <source
       media="(prefers-color-scheme: light) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-light.svg?v=4"
+      srcset="./assets/projects/pastexam-mobile-light.svg?v=5"
     />
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./assets/projects/pastexam-dark.svg?v=4"
+      srcset="./assets/projects/pastexam-dark.svg?v=5"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./assets/projects/pastexam-light.svg?v=4"
+      srcset="./assets/projects/pastexam-light.svg?v=5"
     />
     <img
-      src="./assets/projects/pastexam-light.svg?v=4"
+      src="./assets/projects/pastexam-light.svg?v=5"
       width="100%"
       alt="PhysArchive system card showing course search, PDF preview, submission, review and discussion workflows, and the verified technology stack"
     />

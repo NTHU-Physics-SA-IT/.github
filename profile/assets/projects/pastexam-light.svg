@@ -32,7 +32,6 @@
   <text x="1172" y="37" text-anchor="end" class="label green">STATUS: ACTIVE DEVELOPMENT</text>
 
   <rect x="28" y="66" width="334" height="174" rx="3" fill="none" stroke="#B8C9D1" stroke-width="1"/>
-  <rect x="32" y="80" width="4" height="54" class="green"/>
   <text x="46" y="103" class="title primary">PHYSARCHIVE</text>
   <text x="46" y="125" class="subtitle cyan">NTHU PHYSICS PAST EXAM PLATFORM</text>
   <text x="46" y="153" class="body primary">面向清大物理系學生的考古題與課程資料平台</text>
