@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 580" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 496" role="img" aria-labelledby="title desc">
   <title id="title">PHYSARCHIVE — NTHU Physics Past Exam Platform</title>
-  <desc id="desc">Mobile dark-mode engineering console card for the student archive platform, showing identity, archive workflow, service topology, features, and technology stack.</desc>
+  <desc id="desc">Mobile dark-mode engineering console card for the student archive platform, showing course search and preview, submission, review, discussion, and its verified technology stack.</desc>
   <defs>
     <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
       <path d="M16 0H0V16" fill="none" stroke="#1B3A4B" stroke-width="0.6" opacity="0.34"/>
@@ -17,15 +17,13 @@
       .meta{font-size:11.5px;font-weight:700;letter-spacing:0.2px}
       .label{font-size:11px;font-weight:800;letter-spacing:0.6px}
       .body{font-size:13px;font-weight:700}
+      .stack{font-size:9.5px;font-weight:700;letter-spacing:0.1px}
       .node-id{font-size:9px;font-weight:800;letter-spacing:0.5px}
-      .node-label{font-size:10.5px;font-weight:800}
       .node-meta{font-size:8.5px;font-weight:700}
-      .request-bus{fill:none;stroke:#55D8F5;stroke-width:1.5}
-      .data-bus{fill:none;stroke:#EBCB72;stroke-width:1.4}
     </style>
   </defs>
 
-  <rect class="panel" x="10" y="10" width="700" height="560" rx="6"/>
+  <rect class="panel" x="10" y="10" width="700" height="476" rx="6"/>
   <path class="divider" d="M10 58H710M466 18V50"/>
   <rect x="26" y="29" width="8" height="8" class="green"/>
   <text x="46" y="38" class="label primary">PROJECT CONSOLE / 01</text>
@@ -69,56 +67,26 @@
 
   <rect class="raised" x="26" y="358" width="668" height="112" rx="3"/>
   <rect x="26" y="358" width="668" height="112" rx="3" fill="url(#grid)"/>
-  <text x="42" y="382" class="label cyan">SERVICE TOPOLOGY</text>
-  <text x="678" y="382" text-anchor="end" class="meta muted">DOCKER COMPOSE</text>
-  <path class="request-bus" d="M150 419H166M274 419H290"/>
-  <path class="data-bus" d="M398 419H414M522 419H538"/>
-
-  <rect class="module" x="42" y="394" width="108" height="50" rx="2"/>
-  <rect x="50" y="402" width="5" height="5" class="green"/>
-  <text x="63" y="407" class="node-id muted">N01</text>
-  <text x="96" y="421" text-anchor="middle" class="node-label primary">EDGE</text>
-  <text x="96" y="435" text-anchor="middle" class="node-meta muted">NGINX</text>
-
-  <rect class="module" x="166" y="394" width="108" height="50" rx="2"/>
-  <rect x="174" y="402" width="5" height="5" class="cyan"/>
-  <text x="187" y="407" class="node-id muted">N02</text>
-  <text x="220" y="421" text-anchor="middle" class="node-label primary">UI</text>
-  <text x="220" y="435" text-anchor="middle" class="node-meta muted">VUE 3</text>
-
-  <rect class="module" x="290" y="394" width="108" height="50" rx="2"/>
-  <rect x="298" y="402" width="5" height="5" class="cyan"/>
-  <text x="311" y="407" class="node-id muted">N03</text>
-  <text x="344" y="421" text-anchor="middle" class="node-label primary">API</text>
-  <text x="344" y="435" text-anchor="middle" class="node-meta muted">FASTAPI</text>
-
-  <rect class="module" x="414" y="394" width="108" height="50" rx="2"/>
-  <rect x="422" y="402" width="5" height="5" class="amber"/>
-  <text x="435" y="407" class="node-id muted">N04</text>
-  <text x="468" y="421" text-anchor="middle" class="node-label primary">DATA</text>
-  <text x="468" y="435" text-anchor="middle" class="node-meta muted">PG + REDIS</text>
-
-  <rect class="module" x="538" y="394" width="140" height="50" rx="2"/>
-  <rect x="546" y="402" width="5" height="5" class="amber"/>
-  <text x="559" y="407" class="node-id muted">N05</text>
-  <text x="608" y="421" text-anchor="middle" class="node-label primary">OBJECT</text>
-  <text x="608" y="435" text-anchor="middle" class="node-meta muted">MINIO</text>
-  <text x="42" y="461" class="node-meta muted">REQUEST / DATA / OBJECT STORAGE PATH</text>
-
-  <rect class="raised" x="26" y="482" width="668" height="40" rx="2"/>
-  <path class="divider" d="M159.6 482V522M293.2 482V522M426.8 482V522M560.4 482V522"/>
-  <rect x="42" y="499" width="6" height="6" class="green"/>
-  <text x="58" y="506" class="label primary">SEARCH</text>
-  <rect x="175" y="499" width="6" height="6" class="cyan"/>
-  <text x="191" y="506" class="label primary">PREVIEW</text>
-  <rect x="309" y="499" width="6" height="6" class="amber"/>
-  <text x="325" y="506" class="label primary">SUBMIT</text>
-  <rect x="443" y="499" width="6" height="6" class="green"/>
-  <text x="459" y="506" class="label primary">REVIEW</text>
-  <rect x="577" y="499" width="6" height="6" class="cyan"/>
-  <text x="593" y="506" class="label primary">DISCUSS</text>
-
-  <text x="26" y="538" class="meta muted" xml:space="preserve"><tspan class="cyan">APP:  </tspan><tspan>VUE 3 / VITE / PRIMEVUE / TAILWIND / PYTHON / FASTAPI</tspan></text>
-  <text x="26" y="552" class="meta muted" xml:space="preserve"><tspan class="amber">DATA: </tspan><tspan>SQLMODEL / POSTGRESQL / REDIS / MINIO</tspan></text>
-  <text x="26" y="566" class="meta muted" xml:space="preserve"><tspan class="green">INFRA:</tspan><tspan> DOCKER COMPOSE / NGINX / GITHUB ACTIONS</tspan></text>
+  <text x="42" y="382" class="label cyan">WORKFLOW / VERIFIED STACK</text>
+  <text x="678" y="382" text-anchor="end" class="meta muted">ARCHIVE OPERATIONS</text>
+  <rect class="module" x="42" y="392" width="120" height="26" rx="2"/>
+  <rect x="52" y="402" width="6" height="6" class="green"/>
+  <text x="68" y="409" class="label primary">SEARCH</text>
+  <rect class="module" x="171" y="392" width="120" height="26" rx="2"/>
+  <rect x="181" y="402" width="6" height="6" class="cyan"/>
+  <text x="197" y="409" class="label primary">PREVIEW</text>
+  <rect class="module" x="300" y="392" width="120" height="26" rx="2"/>
+  <rect x="310" y="402" width="6" height="6" class="amber"/>
+  <text x="326" y="409" class="label primary">SUBMIT</text>
+  <rect class="module" x="429" y="392" width="120" height="26" rx="2"/>
+  <rect x="439" y="402" width="6" height="6" class="green"/>
+  <text x="455" y="409" class="label primary">REVIEW</text>
+  <rect class="module" x="558" y="392" width="120" height="26" rx="2"/>
+  <rect x="568" y="402" width="6" height="6" class="cyan"/>
+  <text x="584" y="409" class="label primary">DISCUSS</text>
+  <path class="divider" d="M42 426H678M360 432V460"/>
+  <text x="42" y="442" class="stack muted"><tspan class="cyan">FRONTEND  </tspan><tspan>VUE 3 / VITE / PRIMEVUE / TAILWIND CSS</tspan></text>
+  <text x="376" y="442" class="stack muted"><tspan class="green">BACKEND  </tspan><tspan>PYTHON / FASTAPI / SQLMODEL / ALEMBIC</tspan></text>
+  <text x="42" y="460" class="stack muted"><tspan class="amber">DATA      </tspan><tspan>POSTGRESQL / REDIS / MINIO</tspan></text>
+  <text x="376" y="460" class="stack muted"><tspan class="cyan">INFRA    </tspan><tspan>DOCKER COMPOSE / NGINX / GITHUB ACTIONS</tspan></text>
 </svg>

@@ -1,16 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" role="img" aria-labelledby="title desc">
   <title id="title">PHYSARCHIVE — NTHU Physics Past Exam Platform</title>
-  <desc id="desc">Light-mode engineering console card for the student archive platform, showing its identity, archive workflow, service topology, features, and verified technology stack.</desc>
+  <desc id="desc">Light-mode engineering console card for the student archive platform, showing course search and preview, submission, review, discussion, and its verified technology stack.</desc>
   <defs>
     <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
       <path d="M16 0H0V16" fill="none" stroke="#B8C9D1" stroke-width="0.6" opacity="0.42"/>
     </pattern>
-    <marker id="arrow-request" viewBox="0 0 6 6" refX="5.2" refY="3" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0L6 3L0 6Z" fill="#006D85"/>
-    </marker>
-    <marker id="arrow-data" viewBox="0 0 6 6" refX="5.2" refY="3" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0L6 3L0 6Z" fill="#8A6500"/>
-    </marker>
     <style>
       text{font-family:"Courier New",Courier,"Liberation Mono","DejaVu Sans Mono",monospace;font-weight:700}
       .panel{fill:#FFFFFF;stroke:#B8C9D1;stroke-width:1.5}
@@ -26,15 +20,11 @@
       .label{font-size:11px;font-weight:800;letter-spacing:0.7px}
       .body{font-size:12.5px;font-weight:700}
       .node-id{font-size:9px;font-weight:800;letter-spacing:0.6px}
-      .node-label{font-size:11px;font-weight:800}
       .node-meta{font-size:8.5px;font-weight:700}
-      .request-bus{fill:none;stroke:#006D85;stroke-width:1.6}
-      .data-bus{fill:none;stroke:#8A6500;stroke-width:1.4}
-      .wire{fill:none;stroke:#536875;stroke-width:1;opacity:0.7}
     </style>
   </defs>
 
-  <rect class="panel" x="12" y="12" width="1176" height="296" rx="4"/>
+  <rect class="panel" x="12" y="12" width="1176" height="236" rx="4"/>
   <path class="divider" d="M12 54H1188M760 20V46M972 20V46"/>
   <rect x="28" y="28" width="8" height="8" class="green"/>
   <text x="48" y="37" class="label primary">PROJECT CONSOLE / 01</text>
@@ -83,63 +73,25 @@
 
   <rect class="raised" x="824" y="66" width="348" height="174" rx="3"/>
   <rect x="824" y="66" width="348" height="174" rx="3" fill="url(#grid)"/>
-  <text x="840" y="90" class="label cyan">SERVICE TOPOLOGY</text>
-  <text x="1156" y="90" text-anchor="end" class="meta muted">DOCKER COMPOSE</text>
-
-  <path class="request-bus" d="M892 127H918M982 127H1008M1072 127H1100" marker-end="url(#arrow-request)"/>
-  <path class="data-bus" d="M1040 150V167H931V176M1040 167H1086V176" marker-end="url(#arrow-data)"/>
-  <rect class="module" x="840" y="106" width="52" height="44" rx="2"/>
-  <rect x="846" y="112" width="5" height="5" class="green"/>
-  <text x="858" y="117" class="node-id muted">N01</text>
-  <text x="866" y="133" text-anchor="middle" class="node-label primary">EDGE</text>
-  <text x="866" y="144" text-anchor="middle" class="node-meta muted">NGINX</text>
-
-  <rect class="module" x="918" y="106" width="64" height="44" rx="2"/>
-  <rect x="924" y="112" width="5" height="5" class="cyan"/>
-  <text x="936" y="117" class="node-id muted">N02</text>
-  <text x="950" y="133" text-anchor="middle" class="node-label primary">UI</text>
-  <text x="950" y="144" text-anchor="middle" class="node-meta muted">VUE 3</text>
-
-  <rect class="module" x="1008" y="106" width="64" height="44" rx="2"/>
-  <rect x="1014" y="112" width="5" height="5" class="cyan"/>
-  <text x="1026" y="117" class="node-id muted">N03</text>
-  <text x="1040" y="133" text-anchor="middle" class="node-label primary">API</text>
-  <text x="1040" y="144" text-anchor="middle" class="node-meta muted">FASTAPI</text>
-
-  <rect class="module" x="1100" y="106" width="56" height="44" rx="2"/>
-  <rect x="1106" y="112" width="5" height="5" class="green"/>
-  <text x="1118" y="117" class="node-id muted">S01</text>
-  <text x="1128" y="133" text-anchor="middle" class="node-label primary">READY</text>
-  <text x="1128" y="144" text-anchor="middle" class="node-meta muted">ROUTE</text>
-
-  <rect class="module" x="882" y="176" width="98" height="38" rx="2"/>
-  <rect x="888" y="182" width="5" height="5" class="amber"/>
-  <text x="900" y="187" class="node-id muted">N04</text>
-  <text x="931" y="199" text-anchor="middle" class="node-label primary">DATA</text>
-  <text x="931" y="210" text-anchor="middle" class="node-meta muted">POSTGRESQL / REDIS</text>
-
-  <rect class="module" x="1037" y="176" width="98" height="38" rx="2"/>
-  <rect x="1043" y="182" width="5" height="5" class="amber"/>
-  <text x="1055" y="187" class="node-id muted">N05</text>
-  <text x="1086" y="199" text-anchor="middle" class="node-label primary">OBJECT</text>
-  <text x="1086" y="210" text-anchor="middle" class="node-meta muted">MINIO</text>
-  <text x="840" y="232" class="node-meta muted">REQUEST / DATA / OBJECT STORAGE PATH</text>
-
-  <rect class="raised" x="28" y="250" width="1144" height="28" rx="2"/>
-  <path class="divider" d="M257 250V278M486 250V278M715 250V278M944 250V278"/>
-  <rect x="44" y="261" width="6" height="6" class="green"/>
-  <text x="60" y="268" class="label primary">SEARCH</text>
-  <rect x="273" y="261" width="6" height="6" class="cyan"/>
-  <text x="289" y="268" class="label primary">PREVIEW</text>
-  <rect x="502" y="261" width="6" height="6" class="amber"/>
-  <text x="518" y="268" class="label primary">SUBMIT</text>
-  <rect x="731" y="261" width="6" height="6" class="green"/>
-  <text x="747" y="268" class="label primary">REVIEW</text>
-  <rect x="960" y="261" width="6" height="6" class="cyan"/>
-  <text x="976" y="268" class="label primary">DISCUSS</text>
-
-  <text x="28" y="292" class="stack muted" xml:space="preserve"><tspan class="cyan">FRONTEND  </tspan><tspan>VUE 3 / VITE / PRIMEVUE / TAILWIND CSS</tspan></text>
-  <text x="628" y="292" class="stack muted" xml:space="preserve"><tspan class="green">BACKEND  </tspan><tspan>PYTHON / FASTAPI / SQLMODEL / ALEMBIC</tspan></text>
-  <text x="28" y="304" class="stack muted" xml:space="preserve"><tspan class="amber">DATA  </tspan><tspan>POSTGRESQL / REDIS / MINIO</tspan></text>
-  <text x="628" y="304" class="stack muted" xml:space="preserve"><tspan class="cyan">INFRA  </tspan><tspan>DOCKER COMPOSE / NGINX / GITHUB ACTIONS</tspan></text>
+  <text x="840" y="90" class="label cyan">WORKFLOW / VERIFIED STACK</text>
+  <rect class="module" x="840" y="100" width="96" height="25" rx="2"/>
+  <rect x="850" y="110" width="6" height="6" class="green"/>
+  <text x="866" y="117" class="label primary">SEARCH</text>
+  <rect class="module" x="946" y="100" width="96" height="25" rx="2"/>
+  <rect x="956" y="110" width="6" height="6" class="cyan"/>
+  <text x="972" y="117" class="label primary">PREVIEW</text>
+  <rect class="module" x="1052" y="100" width="104" height="25" rx="2"/>
+  <rect x="1062" y="110" width="6" height="6" class="amber"/>
+  <text x="1078" y="117" class="label primary">SUBMIT</text>
+  <rect class="module" x="840" y="133" width="149" height="25" rx="2"/>
+  <rect x="850" y="143" width="6" height="6" class="green"/>
+  <text x="866" y="150" class="label primary">REVIEW</text>
+  <rect class="module" x="999" y="133" width="157" height="25" rx="2"/>
+  <rect x="1009" y="143" width="6" height="6" class="cyan"/>
+  <text x="1025" y="150" class="label primary">DISCUSS</text>
+  <path class="divider" d="M840 166H1156"/>
+  <text x="840" y="181" class="stack muted"><tspan class="cyan">FRONTEND  </tspan><tspan>VUE 3 / VITE / PRIMEVUE / TAILWIND CSS</tspan></text>
+  <text x="840" y="197" class="stack muted"><tspan class="green">BACKEND   </tspan><tspan>PYTHON / FASTAPI / SQLMODEL / ALEMBIC</tspan></text>
+  <text x="840" y="213" class="stack muted"><tspan class="amber">DATA      </tspan><tspan>POSTGRESQL / REDIS / MINIO</tspan></text>
+  <text x="840" y="229" class="stack muted"><tspan class="cyan">INFRA     </tspan><tspan>DOCKER COMPOSE / NGINX / GITHUB ACTIONS</tspan></text>
 </svg>
