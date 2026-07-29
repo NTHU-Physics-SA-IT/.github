@@ -35,8 +35,8 @@
       .cyan { fill: #006D85; }
       .amber { fill: #8A6500; }
       .border { stroke: #B8C9D1; }
-      .brand { font-size: 34px; font-weight: 400; letter-spacing: .55px; }
-      .brand-zh { font-size: 24px; font-weight: 400; letter-spacing: .4px; }
+      .brand { font-size: 29px; font-weight: 600; letter-spacing: .55px; }
+      .brand-zh { font-size: 20px; font-weight: 400; letter-spacing: .4px; }
       .tagline { font-size: 16px; font-weight: 600; letter-spacing: .1px; }
       .meta { font-size: 15px; font-weight: 500; letter-spacing: .3px; }
       .terminal { font-size: 18.5px; font-weight: 500; }
@@ -58,7 +58,7 @@
   <text x="694" y="38" text-anchor="end" class="meta muted">PUBLIC / ONLINE</text>
 
   <text x="36" y="96" class="brand primary">NTHU PHYSICS SA // IT TEAM</text>
-  <text x="36" y="130" class="brand-zh primary">清大物理系系學會資訊組</text>
+  <text x="36" y="128" class="brand-zh primary">清大物理系系學會資訊組</text>
   <text x="36" y="156" class="tagline cyan">BUILDING RELIABLE DIGITAL INFRASTRUCTURE FOR PHYSICS STUDENTS</text>
 
   <rect x="24" y="170" width="672" height="220" rx="6" class="raised border" stroke-width="1.2"/>
