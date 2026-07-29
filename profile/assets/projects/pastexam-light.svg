@@ -32,11 +32,11 @@
 
   <rect x="28" y="66" width="334" height="174" rx="3" fill="none" stroke="#B8C9D1" stroke-width="1"/>
   <text x="46" y="103" class="title primary">PHYSARCHIVE</text>
-  <text x="46" y="125" class="subtitle primary">NTHU PHYSICS PAST EXAM PLATFORM</text>
-  <text x="46" y="157" class="meta muted">SEARCHABLE MATERIALS / STUDENT WORKFLOWS</text>
-  <path class="divider" d="M46 174H344"/>
-  <text x="46" y="197" class="label muted">REPOSITORY</text>
-  <text x="126" y="197" class="repo primary">NTHU-Physics-SA-IT/PastExamWeb_PHY</text>
+  <text x="46" y="132" class="subtitle primary">NTHU PHYSICS PAST EXAM PLATFORM</text>
+  <text x="46" y="160" class="meta muted">SEARCHABLE MATERIALS / STUDENT WORKFLOWS</text>
+  <path class="divider" d="M46 176H344"/>
+  <text x="46" y="198" class="label muted">REPOSITORY</text>
+  <text x="126" y="198" class="repo primary">NTHU-Physics-SA-IT/PastExamWeb_PHY</text>
   <text x="46" y="220" class="label muted">LIVE</text>
   <text x="126" y="220" class="meta green">physarchive.com</text>
 

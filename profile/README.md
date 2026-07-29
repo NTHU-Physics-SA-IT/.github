@@ -38,10 +38,10 @@ COLLABORATION   -> build systems together
   <picture>
     <source
       media="(max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-light.svg?v=7"
+      srcset="./assets/projects/pastexam-mobile-light.svg?v=8"
     />
     <img
-      src="./assets/projects/pastexam-light.svg?v=7"
+      src="./assets/projects/pastexam-light.svg?v=8"
       width="100%"
       alt="PhysArchive system card showing course search, PDF preview, submission, review and discussion workflows, and the verified technology stack"
     />

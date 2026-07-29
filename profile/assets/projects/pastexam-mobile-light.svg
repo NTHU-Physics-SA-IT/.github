@@ -30,13 +30,13 @@
   <text x="26" y="53" class="meta muted">PUBLIC STUDENT SYSTEM</text>
 
   <rect x="26" y="72" width="668" height="122" rx="3" fill="none" stroke="#B8C9D1" stroke-width="1"/>
-  <text x="46" y="108" class="title primary">PHYSARCHIVE</text>
-  <text x="46" y="130" class="subtitle primary">NTHU PHYSICS PAST EXAM PLATFORM</text>
-  <text x="46" y="160" class="meta muted">SEARCHABLE MATERIALS / STUDENT WORKFLOWS</text>
-  <text x="678" y="108" text-anchor="end" class="label muted">REPOSITORY</text>
-  <text x="678" y="127" text-anchor="end" class="meta primary">NTHU-Physics-SA-IT/PastExamWeb_PHY</text>
-  <text x="678" y="154" text-anchor="end" class="label muted">LIVE</text>
-  <text x="678" y="173" text-anchor="end" class="meta green">physarchive.com</text>
+  <text x="46" y="106" class="title primary">PHYSARCHIVE</text>
+  <text x="46" y="138" class="subtitle primary">NTHU PHYSICS PAST EXAM PLATFORM</text>
+  <text x="46" y="174" class="meta muted">SEARCHABLE MATERIALS / STUDENT WORKFLOWS</text>
+  <text x="674" y="104" text-anchor="end" class="label muted">REPOSITORY</text>
+  <text x="674" y="128" text-anchor="end" class="meta primary">NTHU-Physics-SA-IT/PastExamWeb_PHY</text>
+  <text x="674" y="152" text-anchor="end" class="label muted">LIVE</text>
+  <text x="674" y="176" text-anchor="end" class="meta green">physarchive.com</text>
 
   <rect class="raised" x="26" y="208" width="668" height="136" rx="3"/>
   <rect x="26" y="208" width="668" height="136" rx="3" fill="url(#grid)"/>
