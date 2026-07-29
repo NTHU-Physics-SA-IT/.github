@@ -314,27 +314,16 @@ class UmamiSignalTests(unittest.TestCase):
         for relative in render.HEADER_PATHS:
             ET.parse(self.output_root / relative)
 
-    def test_desktop_dark_light_geometry_matches(self) -> None:
+    def test_output_matrix_is_light_only(self) -> None:
         result, _, stderr = self._run()
         self.assertEqual(result, 0, stderr)
-        dark = _signal_element(
-            _svg_path(self.output_root, "header-dark.svg")
-        ).get("d")
-        light = _signal_element(
-            _svg_path(self.output_root, "header-light.svg")
-        ).get("d")
-        self.assertEqual(dark, light)
-
-    def test_mobile_dark_light_geometry_matches(self) -> None:
-        result, _, stderr = self._run()
-        self.assertEqual(result, 0, stderr)
-        dark = _signal_element(
-            _svg_path(self.output_root, "header-mobile-dark.svg")
-        ).get("d")
-        light = _signal_element(
-            _svg_path(self.output_root, "header-mobile-light.svg")
-        ).get("d")
-        self.assertEqual(dark, light)
+        self.assertEqual(
+            render.HEADER_PATHS,
+            (
+                Path("profile/assets/header-light.svg"),
+                Path("profile/assets/header-mobile-light.svg"),
+            ),
+        )
 
     def test_generated_telemetry_text_stays_inside_viewbox(self) -> None:
         result, _, stderr = self._run()
@@ -401,9 +390,9 @@ class UmamiSignalTests(unittest.TestCase):
         unrelated = [
             Path("profile/README.md"),
             Path("profile/assets/contact-light.svg"),
-            Path("profile/assets/contact-dark.svg"),
+            Path("profile/assets/contact-mobile-light.svg"),
             Path("profile/assets/projects/pastexam-light.svg"),
-            Path("profile/assets/projects/pastexam-dark.svg"),
+            Path("profile/assets/projects/pastexam-mobile-light.svg"),
         ]
         for relative in unrelated:
             target = self.output_root / relative

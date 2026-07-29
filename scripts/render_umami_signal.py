@@ -27,9 +27,7 @@ START_MARKER = "  <!-- UMAMI GENERATED SIGNAL START -->"
 END_MARKER = "  <!-- UMAMI GENERATED SIGNAL END -->"
 HEADER_PATHS = (
     Path("profile/assets/header-light.svg"),
-    Path("profile/assets/header-dark.svg"),
     Path("profile/assets/header-mobile-light.svg"),
-    Path("profile/assets/header-mobile-dark.svg"),
 )
 SNAPSHOT_PATH = Path("profile/assets/data/umami-snapshot.json")
 DEFAULT_REGION = "us"
@@ -244,11 +242,9 @@ def _timezone_label(snapshot: Snapshot) -> str:
 def _render_generated_section(
     snapshot: Snapshot,
     layout: SignalLayout,
-    *,
-    dark: bool,
 ) -> str:
     path = signal_path(snapshot.hourly_pageviews, layout)
-    stroke = "#55D8F5" if dark else "#006D85"
+    stroke = "#006D85"
     generated_iso = snapshot.generated_at.isoformat(timespec="minutes")
     hourly_csv = ",".join(str(value) for value in snapshot.hourly_pageviews)
     views = f"{snapshot.pageviews:,}"
@@ -487,34 +483,6 @@ def _validate_rendered_headers(rendered: dict[Path, str]) -> None:
                 f"Generated {relative.as_posix()} has an invalid signal path."
             )
 
-    for dark_name, light_name in (
-        (
-            Path("profile/assets/header-dark.svg"),
-            Path("profile/assets/header-light.svg"),
-        ),
-        (
-            Path("profile/assets/header-mobile-dark.svg"),
-            Path("profile/assets/header-mobile-light.svg"),
-        ),
-    ):
-        dark_root = ET.fromstring(rendered[dark_name])
-        light_root = ET.fromstring(rendered[light_name])
-        dark_path = next(
-            element.get("d")
-            for element in dark_root.iter()
-            if element.get("data-umami-signal") is not None
-        )
-        light_path = next(
-            element.get("d")
-            for element in light_root.iter()
-            if element.get("data-umami-signal") is not None
-        )
-        if dark_path != light_path:
-            raise SignalSyncError(
-                "Generated dark/light signal geometry does not match."
-            )
-
-
 def _write_if_changed(path: Path, content: str) -> bool:
     if path.is_file() and path.read_text(encoding="utf-8") == content:
         return False
@@ -549,7 +517,6 @@ def render_snapshot(snapshot: Snapshot, output_root: Path) -> list[Path]:
         section = _render_generated_section(
             snapshot,
             layout,
-            dark="-dark" in relative.name,
         )
         rendered[relative] = replace_generated_section(original, section)
 

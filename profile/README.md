@@ -1,21 +1,9 @@
 <p align="center">
-  <!-- GitHub theme mapping: dark themes -> header[-mobile]-dark.svg; light themes and fallback -> header[-mobile]-light.svg. -->
+  <!-- Responsive mapping: mobile -> header-mobile-light.svg; desktop and fallback -> header-light.svg. -->
   <picture>
     <source
-      media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/header-mobile-dark.svg?v=6"
-    />
-    <source
-      media="(prefers-color-scheme: light) and (max-width: 768px)"
+      media="(max-width: 768px)"
       srcset="./assets/header-mobile-light.svg?v=6"
-    />
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="./assets/header-dark.svg?v=6"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="./assets/header-light.svg?v=6"
     />
     <img
       src="./assets/header-light.svg?v=6"
@@ -46,23 +34,11 @@ COLLABORATION   -> build systems together
 目前 Organization 的公開系統以 **PhysArchive** 為核心；我們只展示有公開程式碼與可驗證內容的專案。
 
 <a href="https://github.com/NTHU-Physics-SA-IT/PastExamWeb_PHY">
-  <!-- GitHub theme mapping: dark themes -> pastexam[-mobile]-dark.svg; light themes and fallback -> pastexam[-mobile]-light.svg. -->
+  <!-- Responsive mapping: mobile -> pastexam-mobile-light.svg; desktop and fallback -> pastexam-light.svg. -->
   <picture>
     <source
-      media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-dark.svg?v=5"
-    />
-    <source
-      media="(prefers-color-scheme: light) and (max-width: 768px)"
+      media="(max-width: 768px)"
       srcset="./assets/projects/pastexam-mobile-light.svg?v=5"
-    />
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="./assets/projects/pastexam-dark.svg?v=5"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="./assets/projects/pastexam-light.svg?v=5"
     />
     <img
       src="./assets/projects/pastexam-light.svg?v=5"
@@ -116,23 +92,11 @@ QUALITY        Vitest / Playwright / pytest / Ruff
 ## **06 / CONTACT**
 
 <a href="https://github.com/NTHU-Physics-SA-IT">
-  <!-- GitHub theme mapping: dark themes -> contact[-mobile]-dark.svg; light themes and fallback -> contact[-mobile]-light.svg. -->
+  <!-- Responsive mapping: mobile -> contact-mobile-light.svg; desktop and fallback -> contact-light.svg. -->
   <picture>
     <source
-      media="(prefers-color-scheme: dark) and (max-width: 768px)"
-      srcset="./assets/contact-mobile-dark.svg?v=4"
-    />
-    <source
-      media="(prefers-color-scheme: light) and (max-width: 768px)"
+      media="(max-width: 768px)"
       srcset="./assets/contact-mobile-light.svg?v=4"
-    />
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="./assets/contact-dark.svg?v=4"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="./assets/contact-light.svg?v=4"
     />
     <img
       src="./assets/contact-light.svg?v=4"

@@ -9,7 +9,7 @@ real-time dashboard:
 Umami Cloud API
   -> scheduled GitHub Actions workflow
   -> scripts/render_umami_signal.py
-  -> four generated Header SVG sections
+  -> two generated light-theme Header SVG sections
   -> profile/assets/data/umami-snapshot.json
   -> automated commit to main
 ```
@@ -53,8 +53,8 @@ The pageviews response is mapped into 24 local-hour buckets. Missing hours are
 filled with zero, values are sorted oldest to newest, and square-root scaling
 maps them into the fixed signal area. Square-root scaling keeps smaller values
 visible when one hour has a large spike. An all-zero snapshot produces a flat
-baseline. The same snapshot and geometry are used for dark/light and
-desktop/mobile variants.
+baseline. The same snapshot is used for the desktop and mobile light-theme
+variants.
 
 Only these public aggregate fields are stored:
 
@@ -136,8 +136,9 @@ remains a valid static snapshot when scheduling is disabled.
   variables exist and are available to Actions.
 - **HTTP authentication failure:** rotate `UMAMI_API_KEY`; do not print it.
 - **No generated diff:** the rounded snapshot and aggregates are unchanged.
-- **Dark/light mismatch:** run `python scripts/validate_profile.py` and the
-  unit tests; both themes must contain identical path geometry.
+- **Generated Header validation failure:** run
+  `python scripts/validate_profile.py` and the unit tests; both retained
+  light-theme Header assets must contain a valid generated signal section.
 - **Old image on GitHub:** this is image caching. Do not increment the README
   cache query for scheduled snapshots.
 - **Workflow does not run on a PR branch:** schedules execute only from the

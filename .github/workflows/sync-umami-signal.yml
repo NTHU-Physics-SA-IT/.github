@@ -64,9 +64,7 @@ jobs:
         run: |
           git add \
             profile/assets/header-light.svg \
-            profile/assets/header-dark.svg \
             profile/assets/header-mobile-light.svg \
-            profile/assets/header-mobile-dark.svg \
             profile/assets/data/umami-snapshot.json
 
           if git diff --cached --quiet; then

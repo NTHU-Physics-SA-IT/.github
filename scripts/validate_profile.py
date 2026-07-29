@@ -18,38 +18,20 @@ README = PROFILE_DIR / "README.md"
 ASSET_DIR = PROFILE_DIR / "assets"
 
 EXPECTED_VIEWBOXES = {
-    "assets/header-dark.svg": "0 0 1200 360",
     "assets/header-light.svg": "0 0 1200 360",
-    "assets/header-mobile-dark.svg": "0 0 720 520",
     "assets/header-mobile-light.svg": "0 0 720 520",
-    "assets/contact-dark.svg": "0 0 1200 190",
     "assets/contact-light.svg": "0 0 1200 190",
-    "assets/contact-mobile-dark.svg": "0 0 720 250",
     "assets/contact-mobile-light.svg": "0 0 720 250",
-    "assets/projects/pastexam-dark.svg": "0 0 1200 320",
-    "assets/projects/pastexam-light.svg": "0 0 1200 320",
-    "assets/projects/pastexam-mobile-dark.svg": "0 0 720 580",
-    "assets/projects/pastexam-mobile-light.svg": "0 0 720 580",
+    "assets/projects/pastexam-light.svg": "0 0 1200 276",
+    "assets/projects/pastexam-mobile-light.svg": "0 0 720 516",
 }
 EXPECTED_ASSETS = set(EXPECTED_VIEWBOXES)
 
 EXPECTED_CACHE_VERSIONS = {
-    "header": "4",
+    "header": "6",
     "contact": "4",
-    "pastexam": "2",
+    "pastexam": "5",
 }
-
-THEME_PAIRS = (
-    ("assets/header-dark.svg", "assets/header-light.svg"),
-    ("assets/header-mobile-dark.svg", "assets/header-mobile-light.svg"),
-    ("assets/contact-dark.svg", "assets/contact-light.svg"),
-    ("assets/contact-mobile-dark.svg", "assets/contact-mobile-light.svg"),
-    ("assets/projects/pastexam-dark.svg", "assets/projects/pastexam-light.svg"),
-    (
-        "assets/projects/pastexam-mobile-dark.svg",
-        "assets/projects/pastexam-mobile-light.svg",
-    ),
-)
 
 FONT_PARTS = (
     '"Courier New"',
@@ -72,8 +54,6 @@ LOW_WEIGHT_PATTERN = re.compile(
     r"font-weight\s*(?::|=)\s*[\"']?([1-3]00)\b", re.IGNORECASE
 )
 URL_FUNCTION_PATTERN = re.compile(r"url\(([^)]+)\)", re.IGNORECASE)
-HEX_COLOR_PATTERN = re.compile(r"#[0-9A-Fa-f]{6}\b")
-THEME_DESC_PATTERN = re.compile(r"\b(?:dark|light)\b", re.IGNORECASE)
 REDUCED_MOTION_PATTERN = re.compile(
     r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)"
     r"\s*\{(?P<body>.*?)\}\s*\}",
@@ -278,36 +258,6 @@ def validate_transparent_outer_canvas(
             )
 
 
-def _normalized_theme_svg(path: Path) -> str | None:
-    """Normalize theme presentation while preserving geometry and text."""
-
-    try:
-        root = ET.parse(path).getroot()
-    except (OSError, ET.ParseError):
-        return None
-
-    for element in root.iter():
-        if _local_name(element.tag) == "desc" and element.text:
-            element.text = THEME_DESC_PATTERN.sub("THEME", element.text)
-        for attribute in tuple(element.attrib):
-            if _local_name(attribute) in {
-                "opacity",
-                "fill-opacity",
-                "stroke-opacity",
-            }:
-                element.set(attribute, "THEME_OPACITY")
-
-    serialized = ET.tostring(root, encoding="unicode")
-    serialized = HEX_COLOR_PATTERN.sub("#THEME_COLOR", serialized)
-    return re.sub(
-        r"((?:fill-|stroke-)?opacity\s*:\s*)"
-        r"(?:\d+(?:\.\d*)?|\.\d+)",
-        r"\1THEME_OPACITY",
-        serialized,
-        flags=re.IGNORECASE,
-    )
-
-
 def validate_readme(errors: list[str]) -> set[Path]:
     if not README.is_file():
         errors.append("Missing profile/README.md")
@@ -362,12 +312,7 @@ def validate_readme(errors: list[str]) -> set[Path]:
                 f"{sorted(actual_versions) or 'none'}"
             )
 
-    required_media = (
-        "(prefers-color-scheme: dark) and (max-width: 768px)",
-        "(prefers-color-scheme: light) and (max-width: 768px)",
-        "(prefers-color-scheme: dark)",
-        "(prefers-color-scheme: light)",
-    )
+    required_media = ("(max-width: 768px)",)
 
     for index, picture in enumerate(parser.pictures, start=1):
         sources = [attrs for tag, attrs in picture if tag == "source"]
@@ -388,8 +333,8 @@ def validate_readme(errors: list[str]) -> set[Path]:
                 f"README picture {index} fallback must use a light SVG"
             )
 
-        # Every current asset family has mobile and desktop dark/light sources.
-        if len(sources) != 4:
+        # Every asset family has one mobile light source and a desktop fallback.
+        if len(sources) != 1:
             errors.append(
                 f"README picture {index} has unexpected source count: {len(sources)}"
             )
@@ -403,19 +348,14 @@ def validate_readme(errors: list[str]) -> set[Path]:
 
         if fallback_path.endswith("-light.svg"):
             family_prefix = fallback_path[: -len("-light.svg")]
-            expected_sources = (
-                f"{family_prefix}-mobile-dark.svg",
-                f"{family_prefix}-mobile-light.svg",
-                f"{family_prefix}-dark.svg",
-                f"{family_prefix}-light.svg",
-            )
+            expected_sources = (f"{family_prefix}-mobile-light.svg",)
             actual_sources = tuple(
                 _without_query_or_fragment(source.get("srcset", ""))
                 for source in sources
             )
             if actual_sources != expected_sources:
                 errors.append(
-                    f"README picture {index} light/dark SVG mapping is "
+                    f"README picture {index} responsive light SVG mapping is "
                     f"incorrect: expected {expected_sources}, "
                     f"found {actual_sources}"
                 )
@@ -835,26 +775,6 @@ def validate_header_animation(
             )
 
 
-def validate_theme_parity(errors: list[str]) -> None:
-    for dark_name, light_name in THEME_PAIRS:
-        dark_path = PROFILE_DIR / dark_name
-        light_path = PROFILE_DIR / light_name
-        if not dark_path.is_file() or not light_path.is_file():
-            continue
-
-        dark_normalized = _normalized_theme_svg(dark_path)
-        light_normalized = _normalized_theme_svg(light_path)
-        if (
-            dark_normalized is not None
-            and light_normalized is not None
-            and dark_normalized != light_normalized
-        ):
-            errors.append(
-                "Dark/light geometry or text differs after palette and "
-                f"description normalization: {dark_name} / {light_name}"
-            )
-
-
 def validate_svg(path: Path, errors: list[str]) -> None:
     relative = path.relative_to(REPO_ROOT).as_posix()
     asset_name = path.relative_to(PROFILE_DIR).as_posix()
@@ -1002,8 +922,6 @@ def main() -> int:
 
     for svg_path in svg_paths:
         validate_svg(svg_path, errors)
-
-    validate_theme_parity(errors)
 
     unreferenced = {
         path.resolve() for path in svg_paths
