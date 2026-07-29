@@ -32,7 +32,7 @@
 
   <rect x="26" y="72" width="668" height="122" rx="3" fill="none" stroke="#B8C9D1" stroke-width="1"/>
   <text x="46" y="108" class="title primary">PHYSARCHIVE</text>
-  <text x="46" y="130" class="subtitle cyan">NTHU PHYSICS PAST EXAM PLATFORM</text>
+  <text x="46" y="130" class="subtitle primary">NTHU PHYSICS PAST EXAM PLATFORM</text>
   <text x="46" y="153" class="body primary">面向清大物理系學生的考古題與課程資料平台</text>
   <text x="46" y="176" class="meta muted">SEARCHABLE MATERIALS / STUDENT WORKFLOWS</text>
   <text x="678" y="108" text-anchor="end" class="label muted">REPOSITORY</text>

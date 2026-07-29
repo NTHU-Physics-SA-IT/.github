@@ -3,10 +3,10 @@
   <picture>
     <source
       media="(max-width: 768px)"
-      srcset="./assets/header-mobile-light.svg?v=6"
+      srcset="./assets/header-mobile-light.svg?v=7"
     />
     <img
-      src="./assets/header-light.svg?v=6"
+      src="./assets/header-light.svg?v=7"
       width="100%"
       alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
     />
@@ -38,10 +38,10 @@ COLLABORATION   -> build systems together
   <picture>
     <source
       media="(max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-light.svg?v=5"
+      srcset="./assets/projects/pastexam-mobile-light.svg?v=6"
     />
     <img
-      src="./assets/projects/pastexam-light.svg?v=5"
+      src="./assets/projects/pastexam-light.svg?v=6"
       width="100%"
       alt="PhysArchive system card showing course search, PDF preview, submission, review and discussion workflows, and the verified technology stack"
     />
