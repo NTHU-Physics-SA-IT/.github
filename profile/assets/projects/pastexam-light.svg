@@ -12,7 +12,7 @@
       .module{fill:#FFFFFF;stroke:#B8C9D1;stroke-width:1}
       .divider{fill:none;stroke:#B8C9D1;stroke-width:1}
       .primary{fill:#0A1720}.muted{fill:#536875}.green{fill:#087A4B}.cyan{fill:#006D85}.amber{fill:#8A6500}
-      .title{font-size:30px;font-weight:900;letter-spacing:0.7px}
+      .title{font-size:20px;font-weight:600;letter-spacing:0.7px}
       .subtitle{font-size:13.5px;font-weight:800;letter-spacing:0.35px}
       .meta{font-size:11.5px;font-weight:700;letter-spacing:0.35px}
       .repo{font-size:9.5px;font-weight:700;letter-spacing:0}
