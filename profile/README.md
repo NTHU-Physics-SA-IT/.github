@@ -1,12 +1,17 @@
 <p align="center">
-  <!-- Responsive mapping: mobile -> header-mobile-light.svg; desktop and fallback -> header-light.svg. -->
+  <!-- Web browsers use responsive SVG; GitHub App and unsupported renderers fall back to PNG. -->
   <picture>
     <source
       media="(max-width: 768px)"
-      srcset="./assets/header-mobile-light.svg?v=9"
+      type="image/svg+xml"
+      srcset="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/header-mobile-light.svg?v=10"
+    />
+    <source
+      type="image/svg+xml"
+      srcset="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/header-light.svg?v=10"
     />
     <img
-      src="./assets/header-light.svg?v=9"
+      src="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/fallback/header-mobile-light.png?v=1"
       width="100%"
       alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
     />
@@ -34,14 +39,19 @@ COLLABORATION   -> build systems together
 目前 Organization 的公開系統以 **PhysArchive** 為核心；我們只展示有公開程式碼與可驗證內容的專案。
 
 <a href="https://github.com/NTHU-Physics-SA-IT/PastExamWeb_PHY">
-  <!-- Responsive mapping: mobile -> pastexam-mobile-light.svg; desktop and fallback -> pastexam-light.svg. -->
+  <!-- Web browsers use responsive SVG; GitHub App and unsupported renderers fall back to PNG. -->
   <picture>
     <source
       media="(max-width: 768px)"
-      srcset="./assets/projects/pastexam-mobile-light.svg?v=8"
+      type="image/svg+xml"
+      srcset="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/projects/pastexam-mobile-light.svg?v=9"
+    />
+    <source
+      type="image/svg+xml"
+      srcset="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/projects/pastexam-light.svg?v=9"
     />
     <img
-      src="./assets/projects/pastexam-light.svg?v=8"
+      src="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/fallback/pastexam-mobile-light.png?v=1"
       width="100%"
       alt="PhysArchive system card showing course search, PDF preview, submission, review and discussion workflows, and the verified technology stack"
     />
@@ -92,14 +102,19 @@ QUALITY        Vitest / Playwright / pytest / Ruff
 ## **06 / CONTACT**
 
 <a href="https://github.com/NTHU-Physics-SA-IT">
-  <!-- Responsive mapping: mobile -> contact-mobile-light.svg; desktop and fallback -> contact-light.svg. -->
+  <!-- Web browsers use responsive SVG; GitHub App and unsupported renderers fall back to PNG. -->
   <picture>
     <source
       media="(max-width: 768px)"
-      srcset="./assets/contact-mobile-light.svg?v=4"
+      type="image/svg+xml"
+      srcset="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/contact-mobile-light.svg?v=5"
+    />
+    <source
+      type="image/svg+xml"
+      srcset="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/contact-light.svg?v=5"
     />
     <img
-      src="./assets/contact-light.svg?v=4"
+      src="https://raw.githubusercontent.com/NTHU-Physics-SA-IT/.github/main/profile/assets/fallback/contact-mobile-light.png?v=1"
       width="100%"
       alt="Contact console for NTHU Physics Student Association IT Team"
     />

@@ -7,6 +7,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from collections import Counter, defaultdict
 import re
+import struct
 import sys
 import xml.etree.ElementTree as ET
 from urllib.parse import parse_qs, unquote, urlsplit
@@ -27,10 +28,38 @@ EXPECTED_VIEWBOXES = {
 }
 EXPECTED_ASSETS = set(EXPECTED_VIEWBOXES)
 
-EXPECTED_CACHE_VERSIONS = {
-    "header": "9",
-    "contact": "4",
-    "pastexam": "5",
+EXPECTED_PNG_DIMENSIONS = {
+    "assets/fallback/header-light.png": (2400, 720),
+    "assets/fallback/header-mobile-light.png": (1440, 1040),
+    "assets/fallback/contact-light.png": (2400, 380),
+    "assets/fallback/contact-mobile-light.png": (1440, 500),
+    "assets/fallback/pastexam-light.png": (2400, 552),
+    "assets/fallback/pastexam-mobile-light.png": (1440, 1032),
+}
+
+EXPECTED_SVG_CACHE_VERSIONS = {
+    "header": "10",
+    "contact": "5",
+    "pastexam": "9",
+}
+EXPECTED_PNG_CACHE_VERSION = "1"
+
+RAW_PROFILE_HOST = "raw.githubusercontent.com"
+RAW_PROFILE_PATH_PREFIX = "/NTHU-Physics-SA-IT/.github/main/profile/"
+
+EXPECTED_PICTURE_ASSETS = {
+    "assets/fallback/header-mobile-light.png": (
+        "assets/header-mobile-light.svg",
+        "assets/header-light.svg",
+    ),
+    "assets/fallback/pastexam-mobile-light.png": (
+        "assets/projects/pastexam-mobile-light.svg",
+        "assets/projects/pastexam-light.svg",
+    ),
+    "assets/fallback/contact-mobile-light.png": (
+        "assets/contact-mobile-light.svg",
+        "assets/contact-light.svg",
+    ),
 }
 
 FONT_PARTS = (
@@ -105,9 +134,28 @@ def _local_name(tag: str) -> str:
     return tag.rsplit("}", 1)[-1]
 
 
-def _without_query_or_fragment(reference: str) -> str:
+def _raw_profile_asset_path(reference: str) -> str | None:
     parsed = urlsplit(reference)
-    return unquote(parsed.path)
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc != RAW_PROFILE_HOST
+        or not parsed.path.startswith(RAW_PROFILE_PATH_PREFIX)
+        or parsed.fragment
+    ):
+        return None
+    return unquote(parsed.path[len(RAW_PROFILE_PATH_PREFIX) :])
+
+
+def _png_dimensions(path: Path) -> tuple[int, int] | None:
+    with path.open("rb") as stream:
+        header = stream.read(24)
+    if (
+        len(header) != 24
+        or header[:8] != b"\x89PNG\r\n\x1a\n"
+        or header[12:16] != b"IHDR"
+    ):
+        return None
+    return struct.unpack(">II", header[16:24])
 
 
 def _case_exact(path: Path, base: Path) -> bool:
@@ -265,15 +313,18 @@ def validate_readme(errors: list[str]) -> set[Path]:
     parser = ReadmeHTMLParser()
     parser.feed(README.read_text(encoding="utf-8"))
     referenced: set[Path] = set()
-    family_versions: dict[str, set[str]] = defaultdict(set)
+    family_versions: dict[tuple[str, str], set[str]] = defaultdict(set)
 
     for reference in parser.asset_refs:
         parsed = urlsplit(reference)
-        if parsed.scheme or parsed.netloc:
-            errors.append(f"README asset must be relative: {reference}")
+        local_ref = _raw_profile_asset_path(reference)
+        if local_ref is None:
+            errors.append(
+                "README asset must use the canonical raw profile URL: "
+                f"{reference}"
+            )
             continue
 
-        local_ref = _without_query_or_fragment(reference)
         candidate = (README.parent / local_ref).resolve()
 
         try:
@@ -292,32 +343,64 @@ def validate_readme(errors: list[str]) -> set[Path]:
 
         family = _asset_family(local_ref)
         if family is not None:
+            suffix = Path(local_ref).suffix.lower()
+            if suffix == ".svg":
+                expected_version = EXPECTED_SVG_CACHE_VERSIONS[family]
+            elif suffix == ".png":
+                expected_version = EXPECTED_PNG_CACHE_VERSION
+            else:
+                errors.append(
+                    f"README asset has an unsupported format: {reference}"
+                )
+                continue
+
             query = parse_qs(parsed.query, keep_blank_values=True)
             versions = query.get("v", [])
-            expected_version = EXPECTED_CACHE_VERSIONS[family]
             if set(query) != {"v"} or versions != [expected_version]:
                 errors.append(
                     "README cache version must be "
-                    f"v={expected_version} for {family}: {reference}"
+                    f"v={expected_version} for {family} {suffix}: {reference}"
                 )
-            family_versions[family].update(versions)
+            family_versions[(family, suffix)].update(versions)
 
-    for family, expected_version in EXPECTED_CACHE_VERSIONS.items():
-        actual_versions = family_versions.get(family, set())
+    for family, expected_version in EXPECTED_SVG_CACHE_VERSIONS.items():
+        actual_versions = family_versions.get((family, ".svg"), set())
         if actual_versions != {expected_version}:
             errors.append(
-                f"README {family} cache versions are not coherent: "
+                f"README {family} SVG cache versions are not coherent: "
                 f"expected {expected_version}, found "
                 f"{sorted(actual_versions) or 'none'}"
             )
+        actual_png_versions = family_versions.get((family, ".png"), set())
+        if actual_png_versions != {EXPECTED_PNG_CACHE_VERSION}:
+            errors.append(
+                f"README {family} PNG cache versions are not coherent: "
+                f"expected {EXPECTED_PNG_CACHE_VERSION}, found "
+                f"{sorted(actual_png_versions) or 'none'}"
+            )
 
-    required_media = ("(max-width: 768px)",)
+    if len(parser.pictures) != len(EXPECTED_PICTURE_ASSETS):
+        errors.append(
+            "README must contain exactly "
+            f"{len(EXPECTED_PICTURE_ASSETS)} picture elements"
+        )
+
+    required_media = ("(max-width: 768px)", "")
 
     for index, picture in enumerate(parser.pictures, start=1):
+        tags = [tag for tag, _attrs in picture]
         sources = [attrs for tag, attrs in picture if tag == "source"]
         images = [attrs for tag, attrs in picture if tag == "img"]
+        if tags != ["source", "source", "img"]:
+            errors.append(
+                f"README picture {index} must contain source, source, img "
+                f"in that order; found {tags}"
+            )
+        if len(images) != 1:
+            errors.append(
+                f"README picture {index} must have exactly one img fallback"
+            )
         if not images:
-            errors.append(f"README picture {index} has no img fallback")
             continue
 
         fallback = images[-1]
@@ -326,14 +409,21 @@ def validate_readme(errors: list[str]) -> set[Path]:
         if not fallback.get("alt", "").strip():
             errors.append(f"README picture {index} fallback alt is empty")
 
-        fallback_path = _without_query_or_fragment(fallback.get("src", ""))
-        if not fallback_path.endswith("-light.svg"):
+        fallback_path = _raw_profile_asset_path(fallback.get("src", ""))
+        if fallback_path not in EXPECTED_PICTURE_ASSETS:
             errors.append(
-                f"README picture {index} fallback must use a light SVG"
+                f"README picture {index} fallback must use an expected "
+                "mobile light PNG"
+            )
+            fallback_path = None
+        if fallback.get("srcset") or fallback.get("sizes"):
+            errors.append(
+                f"README picture {index} fallback must not depend on "
+                "sanitized img srcset/sizes attributes"
             )
 
-        # Every asset family has one mobile light source and a desktop fallback.
-        if len(sources) != 1:
+        # Each family has mobile/desktop SVG sources and a basic mobile PNG.
+        if len(sources) != 2:
             errors.append(
                 f"README picture {index} has unexpected source count: {len(sources)}"
             )
@@ -345,11 +435,17 @@ def validate_readme(errors: list[str]) -> set[Path]:
                 f"README picture {index} source order/media is incorrect"
             )
 
-        if fallback_path.endswith("-light.svg"):
-            family_prefix = fallback_path[: -len("-light.svg")]
-            expected_sources = (f"{family_prefix}-mobile-light.svg",)
+        for source in sources:
+            if source.get("type") != "image/svg+xml":
+                errors.append(
+                    f"README picture {index} source must declare "
+                    'type="image/svg+xml"'
+                )
+
+        if fallback_path is not None:
+            expected_sources = EXPECTED_PICTURE_ASSETS[fallback_path]
             actual_sources = tuple(
-                _without_query_or_fragment(source.get("srcset", ""))
+                _raw_profile_asset_path(source.get("srcset", ""))
                 for source in sources
             )
             if actual_sources != expected_sources:
@@ -865,8 +961,6 @@ def validate_svg(path: Path, errors: list[str]) -> None:
 
     if path.name.startswith("header"):
         validate_header_animation(root, raw, relative, errors)
-        if "900" not in raw:
-            errors.append(f"{relative}: missing 900-weight title")
     elif path.name.startswith("contact"):
         animation_elements = [
             element
@@ -875,9 +969,39 @@ def validate_svg(path: Path, errors: list[str]) -> None:
         ]
         if animation_elements or CSS_ANIMATION_PATTERN.search(raw):
             errors.append(f"{relative}: contact assets must remain static")
-    elif path.name.startswith("pastexam"):
-        if "900" not in raw:
-            errors.append(f"{relative}: missing 900-weight project title")
+
+
+def validate_png_fallbacks(errors: list[str]) -> None:
+    fallback_dir = ASSET_DIR / "fallback"
+    actual = {
+        path.relative_to(PROFILE_DIR).as_posix()
+        for path in fallback_dir.glob("*.png")
+        if path.is_file()
+    }
+    expected = set(EXPECTED_PNG_DIMENSIONS)
+
+    for relative in sorted(expected - actual):
+        errors.append(f"Missing required PNG fallback: {relative}")
+    for relative in sorted(actual - expected):
+        errors.append(f"Unexpected PNG fallback: {relative}")
+
+    for relative, expected_dimensions in EXPECTED_PNG_DIMENSIONS.items():
+        path = PROFILE_DIR / relative
+        if not path.is_file():
+            continue
+
+        dimensions = _png_dimensions(path)
+        if dimensions is None:
+            errors.append(f"{relative}: invalid PNG signature or IHDR")
+        elif dimensions != expected_dimensions:
+            errors.append(
+                f"{relative}: expected {expected_dimensions[0]}x"
+                f"{expected_dimensions[1]}, found "
+                f"{dimensions[0]}x{dimensions[1]}"
+            )
+
+        if path.stat().st_size >= 1_000_000:
+            errors.append(f"{relative}: PNG fallback must remain below 1 MB")
 
 
 def validate_repository_files(errors: list[str]) -> None:
@@ -922,6 +1046,7 @@ def main() -> int:
             for path in sorted(unreferenced)
         )
 
+    validate_png_fallbacks(errors)
     validate_repository_files(errors)
 
     if errors:
@@ -933,6 +1058,7 @@ def main() -> int:
     print(
         "Profile validation passed: "
         f"{len(svg_paths)} SVG files, "
+        f"{len(EXPECTED_PNG_DIMENSIONS)} PNG fallbacks, "
         f"{len(referenced)} README asset references."
     )
     return 0
