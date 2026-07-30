@@ -44,10 +44,6 @@
       .signal-heading { font-size: 15px; font-weight: 700; letter-spacing: .3px; }
       .signal-label { font-size: 13px; font-weight: 500; letter-spacing: .2px; }
       .signal-telemetry { font-size: 13px; font-weight: 500; letter-spacing: .05px; }
-      @media (prefers-reduced-motion: reduce) {
-        .motion-layer { display: none !important; }
-        .signal-motion { display: none !important; }
-      }
     </style>
   </defs>
 

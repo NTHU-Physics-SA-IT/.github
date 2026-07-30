@@ -348,17 +348,36 @@ class UmamiSignalTests(unittest.TestCase):
                 self.assertGreaterEqual(x, 0)
                 self.assertLessEqual(x + estimated_width, width)
 
-    def test_reduced_motion_keeps_static_signal_visible(self) -> None:
+    def test_motion_preferences_leave_animation_layers_enabled(self) -> None:
         result, _, stderr = self._run()
         self.assertEqual(result, 0, stderr)
         for relative in render.HEADER_PATHS:
             raw = (self.output_root / relative).read_text(encoding="utf-8")
-            self.assertIn("@media (prefers-reduced-motion: reduce)", raw)
-            self.assertRegex(
+            self.assertNotIn("prefers-reduced-motion", raw)
+            self.assertNotRegex(
                 raw,
-                r"\.signal-motion\s*\{\s*display:\s*none\s*!important;",
+                r"\.(?:motion-layer|signal-motion)\s*\{"
+                r"[^}]*display\s*:\s*none",
             )
             root = ET.fromstring(raw)
+            motion_layers = [
+                element
+                for element in root.iter()
+                if "motion-layer" in element.get("class", "").split()
+            ]
+            signal_motion = [
+                element
+                for element in root.iter()
+                if "signal-motion" in element.get("class", "").split()
+            ]
+            static_fallback = [
+                element
+                for element in root.iter()
+                if "static-fallback" in element.get("class", "").split()
+            ]
+            self.assertEqual(len(motion_layers), 1)
+            self.assertEqual(len(signal_motion), 1)
+            self.assertEqual(len(static_fallback), 1)
             signal = _signal_element(self.output_root / relative)
             self.assertNotIn(
                 "signal-motion", signal.get("class", "").split()

@@ -28,7 +28,7 @@ EXPECTED_VIEWBOXES = {
 EXPECTED_ASSETS = set(EXPECTED_VIEWBOXES)
 
 EXPECTED_CACHE_VERSIONS = {
-    "header": "6",
+    "header": "9",
     "contact": "4",
     "pastexam": "5",
 }
@@ -55,9 +55,8 @@ LOW_WEIGHT_PATTERN = re.compile(
 )
 URL_FUNCTION_PATTERN = re.compile(r"url\(([^)]+)\)", re.IGNORECASE)
 REDUCED_MOTION_PATTERN = re.compile(
-    r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)"
-    r"\s*\{(?P<body>.*?)\}\s*\}",
-    re.IGNORECASE | re.DOTALL,
+    r"prefers-reduced-motion",
+    re.IGNORECASE,
 )
 CSS_ANIMATION_PATTERN = re.compile(
     r"(?:@keyframes|\banimation(?:-name)?\s*:)",
@@ -586,30 +585,20 @@ def validate_header_animation(
             f"{relative}: CSS must not hide the static fallback"
         )
 
-    reduced_motion = REDUCED_MOTION_PATTERN.search(raw)
-    if reduced_motion is None:
-        errors.append(f"{relative}: missing reduced-motion media query")
-    else:
-        reduced_body = reduced_motion.group("body")
-        if not re.search(
-            r"\.motion-layer\s*\{[^}]*display\s*:\s*none\s*!important",
-            reduced_body,
+    if REDUCED_MOTION_PATTERN.search(raw):
+        errors.append(
+            f"{relative}: must not change animation visibility based on "
+            "prefers-reduced-motion"
+        )
+    for class_name in ("motion-layer", "signal-motion"):
+        if re.search(
+            rf"\.{class_name}\s*\{{[^}}]*(?:display\s*:\s*none|"
+            rf"visibility\s*:\s*hidden|opacity\s*:\s*0(?:\D|$))",
+            raw,
             re.IGNORECASE | re.DOTALL,
         ):
             errors.append(
-                f"{relative}: reduced motion must hide only motion layers"
-            )
-        if not re.search(
-            r"\.signal-motion\s*\{[^}]*display\s*:\s*none\s*!important",
-            reduced_body,
-            re.IGNORECASE | re.DOTALL,
-        ):
-            errors.append(
-                f"{relative}: reduced motion must hide signal motion"
-            )
-        if ".static-fallback" in reduced_body:
-            errors.append(
-                f"{relative}: reduced motion must not hide static fallback"
+                f"{relative}: CSS must not hide {class_name}"
             )
 
     motion_layers = [

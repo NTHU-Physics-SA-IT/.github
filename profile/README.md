@@ -3,10 +3,10 @@
   <picture>
     <source
       media="(max-width: 768px)"
-      srcset="./assets/header-mobile-light.svg?v=8"
+      srcset="./assets/header-mobile-light.svg?v=9"
     />
     <img
-      src="./assets/header-light.svg?v=8"
+      src="./assets/header-light.svg?v=9"
       width="100%"
       alt="NTHU Physics Student Association IT Team — building reliable digital infrastructure for physics students"
     />
