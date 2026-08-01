@@ -1,0 +1,33 @@
+name: Validate organization profile
+
+on:
+  pull_request:
+    paths:
+      - "profile/README.md"
+      - "profile/assets/**"
+      - "scripts/validate_profile.py"
+      - ".github/workflows/validate-profile.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate profile assets
+        run: python scripts/validate_profile.py
+
+      - name: Check whitespace errors
+        run: git diff --check
